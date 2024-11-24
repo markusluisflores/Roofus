@@ -24,7 +24,15 @@ export default function PetInformation({ params }) {
   useEffect(() => {
     const retrieveInformation = async () => {
       try {
-        await dbGetPetInformation(params.id, setPetInformation);
+        const response = await fetch(`api/pets/${params.id}`);
+
+        if (!response.ok) {
+          throw new Error(response.status);
+        }
+
+        const data = response.json();
+
+        setPetInformation(data);
       } catch (error) {
         console.log(error);
       }
@@ -37,7 +45,15 @@ export default function PetInformation({ params }) {
   useEffect(() => {
     const retrieveCarouselEntries = async () => {
       try {
-        await dbGetPetCarousel(setPetCarousel);
+        const response = await fetch("api/pets/carousel");
+
+        if (!response.ok) {
+          throw new Error(response.status);
+        }
+
+        const data = response.json();
+        
+        setPetCarousel(data);
       } catch (error) {
         console.log(error);
       }

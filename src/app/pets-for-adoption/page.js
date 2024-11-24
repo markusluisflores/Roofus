@@ -7,25 +7,35 @@ import { useEffect, useState } from "react";
 
 export default function PetsForAdoption() {
   const [pets, setPets] = useState([]);
-  const [filter, setFilter] = useState('all')
+  const [filter, setFilter] = useState("All");
 
   // Retrieve all pets
   useEffect(() => {
     const retrievePets = async () => {
       try {
-        await dbGetAllPets(filter, setPets);
+        const response = await fetch("api/pets");
+
+        if (!response.ok) {
+          throw new Error(response.status);
+        }
+
+        const data = response.json();
+
+        setPets(data);
       } catch (error) {
         console.log(error);
       }
     };
 
     retrievePets();
-  }, [filter]);
+  }, []);
 
   // Create cards from retrieved pets. URL leads to their /[id] page.
   const petCards = pets.map((pet, index) => {
     const petUrl = `/pets-for-adoption/${pet.id}`;
-    return <PetCard key={index} pet={pet} url={petUrl} />;
+    if (filter === pet.type || filter === "All") {
+      return <PetCard key={index} pet={pet} url={petUrl} />;
+    }
   });
 
   return (
