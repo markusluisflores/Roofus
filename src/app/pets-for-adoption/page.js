@@ -1,15 +1,40 @@
+"use client";
+
 import NavBar from "@/components/nav";
 import PetCard from "@/components/pet-card";
+import { sampleObjectArray } from "@/sample";
+import { useEffect, useState } from "react";
 
 export default function PetsForAdoption() {
+  const [pets, setPets] = useState([]);
+  const [filter, setFilter] = useState('all')
+
+  // Retrieve all pets
+  useEffect(() => {
+    const retrievePets = async () => {
+      try {
+        await dbGetAllPets(filter, setPets);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    retrievePets();
+  }, [filter]);
+
+  // Create cards from retrieved pets. URL leads to their /[id] page.
+  const petCards = pets.map((pet, index) => {
+    const petUrl = `/pets-for-adoption/${pet.id}`;
+    return <PetCard key={index} pet={pet} url={petUrl} />;
+  });
+
   return (
     <main>
-      <NavBar />
-      <div className="flex justify-center">
-        <PetCard />
-        <PetCard />
-        <PetCard />
-        <PetCard />
+      <NavBar currentPage="Pets For Adoption" />
+      {/* Task: Create a filter that changes filter state depending on cat/dog/all. Any implementation of filter is fine. */}
+      {/* Cards Body */}
+      <div className="flex justify-center gap-x-4 gap-y-4 pt-16">
+        {petCards}
       </div>
     </main>
   );
