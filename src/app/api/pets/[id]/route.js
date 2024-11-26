@@ -3,6 +3,7 @@ import { z } from "zod";
 
 export async function GET(request, { params }) {
   try {
+    console.log("called");
     const { id } = await params;
 
     const pet = await dbGetPet(id);
@@ -22,7 +23,6 @@ export async function PUT(request, { params }) {
     const pet = await request.json();
 
     const petSchema = z.object({
-      id: z.string(),
       name: z.string(),
       location: z.string(),
       breed: z.string(),
