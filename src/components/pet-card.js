@@ -13,7 +13,7 @@ export default function PetCard(props) {
   const petUrl = url || `/pet/${pet.id}`;
 
   return (
-    <Link href={url}>
+    <Link href={petUrl}>
       <div className="flex flex-col shadow-md bg-brandWhite p-8 rounded-md">
         <div className="flex justify-center w-[420px] h-[420px]">
           <img
