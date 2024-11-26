@@ -43,3 +43,14 @@ export async function dbGetPet(petId) {
     }
 }
 
+export async function dbGetAllPets() {
+    try {
+        const allPetsReference = collection(db, "pets");
+        const allPetsQuery = query(allPetsReference);
+        const querySnapShot = await getDocs(allPetsQuery);
+        return querySnapShot.docs.map(doc => doc.data());
+    } catch (error) {
+        console.log(error);
+    }
+}
+
