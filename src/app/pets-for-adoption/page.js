@@ -2,11 +2,11 @@
 
 import NavBar from "@/components/nav";
 import PetCard from "@/components/pet-card";
-import { sampleObjectArray } from "@/sample";
 import { useEffect, useState } from "react";
 
 export default function PetsForAdoption() {
   const [pets, setPets] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [filter, setFilter] = useState("All");
 
   // Retrieve all pets
@@ -19,11 +19,13 @@ export default function PetsForAdoption() {
           throw new Error(response.status);
         }
 
-        const data = response.json();
+        const data = await response.json();
 
         setPets(data);
       } catch (error) {
         console.log(error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -43,8 +45,8 @@ export default function PetsForAdoption() {
       <NavBar currentPage="Pets For Adoption" />
       {/* Task: Create a filter that changes filter state depending on cat/dog/all. Any implementation of filter is fine. */}
       {/* Cards Body */}
-      <div className="flex justify-center gap-x-4 gap-y-4 pt-16">
-        {petCards}
+      <div className="flex flex-wrap w-screen self-center justify-center pt-16">
+        <div className="flex flex-wrap justify-center gap-x-6 gap-y-6 px-40 py-16">{!isLoading ? petCards : null}</div>
       </div>
     </main>
   );
