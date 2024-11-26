@@ -20,7 +20,7 @@ export async function dbUpdatePet(petId, petObj) {
     }
 }
 
-export async function dbDeleteUser(petId) {
+export async function dbDeletePet(petId) {
     try {
         await deleteDoc(doc(db, "pets", petId));
     } catch (error) {
@@ -28,7 +28,7 @@ export async function dbDeleteUser(petId) {
     }
 }
 
-export async function dbGetUser(petId) {
+export async function dbGetPet(petId) {
     try {
         const petRef = doc(db, "pets", petId);
         const documentSnapshot = await getDoc(petRef);
