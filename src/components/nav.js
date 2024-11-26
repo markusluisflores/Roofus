@@ -35,7 +35,7 @@ export default function NavBar({ openLoginModal }) {
   }
 
   return (
-    <nav className="flex justify-between items-center fixed w-screen shadow-lg bg-brandRed px-10 h-14">
+    <nav className="flex justify-between items-center fixed w-screen shadow-lg bg-brandRed px-10 h-14 z-30">
       <div>
         <Image
           src="/assets/logo/roofus_logo_white.png"

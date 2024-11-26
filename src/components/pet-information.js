@@ -35,6 +35,11 @@ export default function PetInformation() {
     );
   });
 
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => setModalOpen(true);
+  const closeModal = () => setModalOpen(false);
+
   return (
     <div className="flex flex-col w-screen items-center h-screen pt-14">
       <div className="flex flex-col w-[1200px]">
@@ -87,7 +92,7 @@ export default function PetInformation() {
               Since {sampleObject.name} is in foster care, kindly us a message
               for further details!
             </p>
-            <button className="bg-brandWhite text-brandRed font-bold rounded-2xl py-2">FILL OUT ADOPTION FORM</button>
+            <button onClick={openModal} className="bg-brandWhite text-brandRed font-bold rounded-2xl py-2">FILL OUT ADOPTION FORM</button>
           </div>
         </div>
         <p className={`${lato.className} text-gray-800 text-5xl font-extrabold py-8`}>
@@ -97,6 +102,20 @@ export default function PetInformation() {
           {availablePets}
         </div>
       </div>
+
+      {modalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+          <div className="bg-white p-6 relative w-200 max-h-[90vh] overflow-y-auto">
+            <button
+              className="absolute top-2 right-2 text-gray-500"
+              onClick={closeModal}
+            >
+              X
+            </button>
+            <AdoptionForm onClose={closeModal} />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

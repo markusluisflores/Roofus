@@ -9,7 +9,11 @@ const roboto = Roboto({
 export default function PetCard(props) {
   const { pet, url } = props;
 
+  // Just added this as a fallback for Home Page testing, can be removed
+  const petUrl = url || `/pet/${pet.id}`;
+
   return (
+    // Change this to petUrl to test home screen
     <Link href={url}>
       <div className="flex flex-col shadow-md bg-brandWhite p-8 rounded-md">
         <div className="flex justify-center w-[420px] h-[420px]">
