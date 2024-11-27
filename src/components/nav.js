@@ -13,10 +13,10 @@ const roboto = Roboto({
 });
 
 const listItemStyle =
-  "flex w-16 mx-1 px-2 py-1 rounded-md items-center justify-center duration-500 transition-all hover:underline hover:underline-offset-8 hover:decoration-brandWhite hover:transition-delay-500";
+  "flex w-16 mx-2 px-2 py-1 rounded-md items-center justify-center duration-500 transition-all hover:underline hover:underline-offset-8 hover:decoration-brandWhite hover:transition-delay-500 text-xl";
 
 const activeItemStyle =
-  "flex w-16 mx-1 px-2 py-1 rounded-md items-center justify-center transition-colors duration-500 transition-all transition-delay-500 text-brandRed bg-brandWhite";
+  "flex w-16 mx-2 px-2 py-1 rounded-md items-center justify-center transition-colors duration-500 transition-all transition-delay-500 text-brandRed bg-brandWhite text-xl font-bold";
 
 export default function NavBar({ openLoginModal }) {
   const pathname = usePathname();
@@ -35,15 +35,15 @@ export default function NavBar({ openLoginModal }) {
   }
 
   return (
-    <nav className="flex justify-between items-center fixed w-screen shadow-lg bg-brandRed px-10 h-14 z-30">
-      <div>
+    <nav className="flex justify-between items-center fixed w-screen shadow-lg bg-brandRed px-10 h-20 z-30">
+      <Link href="/">
         <Image
           src="/assets/logo/roofus_logo_white.png"
           alt="logo"
-          width={64}
-          height={64}
+          width={120}
+          height={120}
         />
-      </div>
+      </Link>
       <ul
         className={`${roboto.className} flex text-brandWhite text-lg h-full items-center`}
       >
