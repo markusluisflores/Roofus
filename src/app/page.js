@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import Login from "@/components/login";
@@ -121,11 +122,14 @@ export default function Home() {
           Featured Pets
         </h2>
         <div className="flex overflow-x-auto space-x-4 px-4 scrollbar-hide">
-          {sampleObjectArray.map((pet) => (
-            <div key={pet.id} className="flex-shrink-0 w-60">
-              <PetCard pet={pet} />
-            </div>
-          ))}
+          {sampleObjectArray.map((pet) => {
+            const petUrl = `/pets-for-adoption/${pet.id}`;
+            return (
+              <div key={pet.id} className="flex-shrink-0 w-60">
+                <PetCard pet={pet} url={petUrl} />
+              </div>
+            );
+          })}
         </div>
       </section>
 

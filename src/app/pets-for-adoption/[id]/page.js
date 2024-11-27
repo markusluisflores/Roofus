@@ -1,11 +1,12 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 /* eslint-disable react-hooks/exhaustive-deps */
-import Image from "next/image";
 import PetCard from "@/components/pet-card";
 import NavBar from "@/components/nav";
 import { Roboto, Lato } from "next/font/google";
 import { useEffect, useState } from "react";
+import AdoptionForm from "@/components/form-modal";
 
 const roboto = Roboto({
   weight: ["100", "500", "300", "400", "700", "900"],
@@ -20,6 +21,7 @@ const lato = Lato({
 export default function PetInformation({ params }) {
   const [petInformation, setPetInformation] = useState({});
   const [petCarousel, setPetCarousel] = useState([]);
+  const [showForm, setShowForm] = useState(false);
 
   // On load, retrieve pet information
   useEffect(() => {
@@ -72,10 +74,25 @@ export default function PetInformation({ params }) {
     return <PetCard key={index} pet={pet} url={petUrl} />;
   });
 
+  const handleShowForm = () => {
+    setShowForm((prev) => !prev);
+    console.log(showForm);
+  };
+
   return (
     <main>
+      {showForm && (
+        <div
+          className="absolute insert-0 min-h-screen w-screen flex items-center justify-center bg-gray-950/70 py-48"
+          onClick={handleShowForm}
+        >
+          <div onClick={(event) => event.stopPropagation()}>
+            <AdoptionForm />
+          </div>
+        </div>
+      )}
       <NavBar currentPage="Pets For Adoption" />
-      <div className="flex flex-col w-screen items-center h-screen pt-14">
+      <div className="flex flex-col items-center h-screen w-screen pt-14">
         <div className="flex flex-col w-[1200px]">
           <p
             className={`${lato.className} text-gray-800 text-5xl font-extrabold py-8`}
@@ -130,7 +147,10 @@ export default function PetInformation({ params }) {
                   message for further details!
                 </p>
               ) : null}
-              <button className="bg-brandWhite text-brandRed font-bold rounded-2xl py-2">
+              <button
+                className="bg-brandWhite text-brandRed font-bold rounded-2xl py-2"
+                onClick={handleShowForm}
+              >
                 FILL OUT ADOPTION FORM
               </button>
             </div>
@@ -141,7 +161,7 @@ export default function PetInformation({ params }) {
           >
             MORE AVAILABLE ANIMALS
           </p>
-          <div className="flex overflow-x-auto gap-x-4 w-full py-5 mb-16">
+          <div className="flex overflow-x-auto gap-x-4 w-full pb-5 mb-16">
             {availablePets}
           </div>
         </div>
