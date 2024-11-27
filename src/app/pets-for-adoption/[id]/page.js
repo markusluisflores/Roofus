@@ -4,6 +4,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import PetCard from "@/components/pet-card";
 import NavBar from "@/components/nav";
+import Image from "next/image";
 import { Roboto, Lato } from "next/font/google";
 import { useEffect, useState } from "react";
 import AdoptionForm from "@/components/form-modal";
@@ -21,12 +22,14 @@ const lato = Lato({
 export default function PetInformation({ params }) {
   const [petInformation, setPetInformation] = useState({});
   const [petCarousel, setPetCarousel] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
 
   // On load, retrieve pet information
   useEffect(() => {
     const retrieveInformation = async () => {
       try {
+        setIsLoading(true);
         const { id } = await params;
         console.log(id);
         const response = await fetch(`/api/pets/${id}`);
@@ -41,6 +44,8 @@ export default function PetInformation({ params }) {
         setPetInformation(data);
       } catch (error) {
         console.log(error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -92,80 +97,94 @@ export default function PetInformation({ params }) {
         </div>
       )}
       <NavBar currentPage="Pets For Adoption" />
-      <div className="flex flex-col items-center h-screen w-screen pt-14">
-        <div className="flex flex-col w-[1200px]">
-          <p
-            className={`${lato.className} text-gray-800 text-5xl font-extrabold py-8`}
-          >
-            MEET OUR WONDERFUL PET
+      {isLoading ? (
+        <div className="flex flex-col h-screen w-screen justify-center items-center">
+          <Image
+            width={250}
+            height={250}
+            src={"/assets/loading/loading.gif"}
+            alt="Loading"
+          />
+          <p className="text-slate-900 text-3xl font-bold">
+            Calling my friends
           </p>
-          <div className="flex mb-5">
-            <div className="mr-5 h-[600px] w-[600px]">
-              {petInformation ? (
-                <img
-                  className="rounded-xl w-full h-full object-cover"
-                  src={petInformation.img}
-                  alt="Pet Image"
-                />
-              ) : (
-                <p>No image Available</p>
-              )}
-            </div>
-            {/* Right box */}
-            <div
-              className={`${roboto.className} flex flex-col justify-between w-[590px] text-lg rounded-xl p-8 bg-brandRed text-brandWhite`}
+        </div>
+      ) : (
+        <div className="flex flex-col items-center h-screen w-screen pt-14">
+          <div className="flex flex-col w-[1200px]">
+            <p
+              className={`${lato.className} text-gray-800 text-5xl font-extrabold py-8`}
             >
-              {/* Section 1 */}
-              <div className="flex w-full justify-between align-middle items-center">
-                <p className="font-semibold text-4xl mb-5">
-                  {petInformation.name}
-                </p>
-                {/* Badges */}
-                <div>
-                  {petInformation.location === "Foster Care" ? (
-                    <div className="py-1 px-2 rounded-lg text-sm font-semibold text-brandRed bg-brandWhite">
-                      In Foster Care
-                    </div>
-                  ) : null}
-                </div>
+              MEET OUR WONDERFUL PET
+            </p>
+            <div className="flex mb-5">
+              <div className="mr-5 h-[600px] w-[600px]">
+                {petInformation ? (
+                  <img
+                    className="rounded-xl w-full h-full object-cover"
+                    src={petInformation.img}
+                    alt="Pet Image"
+                  />
+                ) : (
+                  <p>No image Available</p>
+                )}
               </div>
-              {/* Section 2 - Pet Information */}
-              <div>
-                <p>Location: {petInformation.location}</p>
-                <p>Breed: {petInformation.breed}</p>
-                <p>Age: {petInformation.age}</p>
-                <p>Sex: {petInformation.sex}</p>
-                <p className="mt-5 font-extrabold">
-                  Hey there, my name is {petInformation.name}!
-                </p>
-                <p className="mb-5">{petInformation.description}</p>
-              </div>
-              {/* Section 3 - Additional Details */}
-              {petInformation.location === "Foster Care" ? (
-                <p className="mb-5">
-                  Since {petInformation.name} is in foster care, kindly us a
-                  message for further details!
-                </p>
-              ) : null}
-              <button
-                className="bg-brandWhite text-brandRed font-bold rounded-2xl py-2"
-                onClick={handleShowForm}
+              {/* Right box */}
+              <div
+                className={`${roboto.className} flex flex-col justify-between w-[590px] text-lg rounded-xl p-8 bg-brandRed text-brandWhite`}
               >
-                FILL OUT ADOPTION FORM
-              </button>
+                {/* Section 1 */}
+                <div className="flex w-full justify-between align-middle items-center">
+                  <p className="font-semibold text-4xl mb-5">
+                    {petInformation.name}
+                  </p>
+                  {/* Badges */}
+                  <div>
+                    {petInformation.location === "Foster Care" ? (
+                      <div className="py-1 px-2 rounded-lg text-sm font-semibold text-brandRed bg-brandWhite">
+                        In Foster Care
+                      </div>
+                    ) : null}
+                  </div>
+                </div>
+                {/* Section 2 - Pet Information */}
+                <div>
+                  <p>Location: {petInformation.location}</p>
+                  <p>Breed: {petInformation.breed}</p>
+                  <p>Age: {petInformation.age}</p>
+                  <p>Sex: {petInformation.sex}</p>
+                  <p className="mt-5 font-extrabold">
+                    Hey there, my name is {petInformation.name}!
+                  </p>
+                  <p className="mb-5">{petInformation.description}</p>
+                </div>
+                {/* Section 3 - Additional Details */}
+                {petInformation.location === "Foster Care" ? (
+                  <p className="mb-5">
+                    Since {petInformation.name} is in foster care, kindly us a
+                    message for further details!
+                  </p>
+                ) : null}
+                <button
+                  className="bg-brandWhite text-brandRed font-bold rounded-2xl py-2"
+                  onClick={handleShowForm}
+                >
+                  FILL OUT ADOPTION FORM
+                </button>
+              </div>
             </div>
-          </div>
-          {/* Carousel section */}
-          <p
-            className={`${lato.className} text-gray-800 text-5xl font-extrabold py-8`}
-          >
-            MORE AVAILABLE ANIMALS
-          </p>
-          <div className="flex overflow-x-auto gap-x-4 w-full pb-5 mb-16">
-            {availablePets}
+            {/* Carousel section */}
+            <p
+              className={`${lato.className} text-gray-800 text-5xl font-extrabold py-8`}
+            >
+              MORE AVAILABLE ANIMALS
+            </p>
+            <div className="flex overflow-x-auto gap-x-4 w-full pb-5 mb-16">
+              {availablePets}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </main>
   );
 }

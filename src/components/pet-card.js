@@ -10,9 +10,11 @@ const roboto = Roboto({
 export default function PetCard(props) {
   const { pet, url } = props;
 
+  const textStyle = `${roboto.className} text-slate-900 text-xl font-medium`
+
   return (
     <Link href={url}>
-      <div className="flex flex-col shadow-md bg-brandWhite p-8 rounded-md">
+      <div className="flex flex-col shadow-xl bg-brandWhite p-8 rounded-lg">
         <div className="flex justify-center w-[420px] h-[420px]">
           <img
             className="rounded-lg border w-full h-full object-cover"
@@ -21,15 +23,15 @@ export default function PetCard(props) {
           />
         </div>
         <div className={`${roboto.className}`}>
-          <p className="text-black text-3xl text-center font-bold my-5">
+          <p className="text-4xl text-center font-bold my-5 text-brandRed">
             {pet.name.toUpperCase()}
           </p>
           <hr className="w-full h-1 border-gray-500 mb-2" />
-          <p className="text-black text-lg">Age: {pet.age}</p>
-          <p className="text-black text-lg">Gender: {pet.sex}</p>
-          <p className="text-black text-lg">Breed: {pet.breed}</p>
-          <p className="text-black text-lg">Size: {pet.size}</p>
-          <p className="text-black text-lg">Type: {pet.type}</p>
+          <p className={textStyle}>Age: {pet.age}</p>
+          <p className={textStyle}>Gender: {pet.sex}</p>
+          <p className={textStyle}>Breed: {pet.breed}</p>
+          <p className={textStyle}>Size: {pet.size}</p>
+          <p className={textStyle}>Type: {pet.type}</p>
         </div>
       </div>
     </Link>
