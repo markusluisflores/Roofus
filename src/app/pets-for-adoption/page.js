@@ -56,6 +56,23 @@ export default function PetsForAdoption() {
   return (
     <main>
       <NavBar currentPage="Pets For Adoption" />
+
+      <div
+        className="relative bg-cover bg-center h-[60vh] sm:h-[60vh] md:h-[80vh]"
+        style={{
+          backgroundImage:
+            "url(https://static.vecteezy.com/system/resources/previews/047/005/810/non_2x/dogs-and-cats-peeking-over-web-banner-free-photo.jpg)",
+        }}
+      >
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white">
+          <h1 className="text-5xl font-bold mb-4">Find Your Forever Friend</h1>
+          <p className="text-xl mb-8">
+            Every one of our animals deserves a loving and caring home. Explore now to find the furry friend who will thrive with you.
+          </p>
+        </div>
+      </div>
+
       {/* Task: Create a filter that changes filter state depending on cat/dog/all. Any implementation of filter is fine. */}
       {/* Cards Body */}
       {!isLoading ? (
