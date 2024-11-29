@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Roboto, Lato } from "next/font/google";
 import PetCard from "./pet-card";
 import { sampleObjectArray } from "@/sample";
+import { useEffect } from "react";
 
 const roboto = Roboto({
   weight: ["100", "500", "300", "400", "700", "900"],
@@ -92,10 +93,17 @@ export default function PetInformation() {
               Since {sampleObject.name} is in foster care, kindly us a message
               for further details!
             </p>
-            <button onClick={openModal} className="bg-brandWhite text-brandRed font-bold rounded-2xl py-2">FILL OUT ADOPTION FORM</button>
+            <button
+              onClick={openModal}
+              className="bg-brandWhite text-brandRed font-bold rounded-2xl py-2"
+            >
+              FILL OUT ADOPTION FORM
+            </button>
           </div>
         </div>
-        <p className={`${lato.className} text-gray-800 text-5xl font-extrabold py-8`}>
+        <p
+          className={`${lato.className} text-gray-800 text-5xl font-extrabold py-8`}
+        >
           MORE AVAILABLE ANIMALS
         </p>
         <div className="flex overflow-x-auto gap-x-4 w-full">
@@ -104,15 +112,17 @@ export default function PetInformation() {
       </div>
 
       {modalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-          <div className="bg-white p-6 relative w-200 max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 bg-white bg-opacity-50 flex justify-center items-center">
+          <div className="bg-white p-6 relative w-full max-w-4xl max-h-[10vh] overflow-hidden">
             <button
               className="absolute top-2 right-2 text-gray-500"
               onClick={closeModal}
             >
               X
             </button>
-            <AdoptionForm onClose={closeModal} />
+            <div onClick={(event) => event.stopPropagation()} className="overflow-y-auto max-h-[10vh]">
+              <AdoptionForm onClose={closeModal} />
+            </div>
           </div>
         </div>
       )}
