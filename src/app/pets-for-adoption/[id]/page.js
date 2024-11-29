@@ -113,7 +113,7 @@ export default function PetInformation({ params }) {
         <div className="flex flex-col items-center h-screen w-screen pt-14">
           <div className="flex flex-col w-[1200px]">
             <p
-              className={`${lato.className} text-gray-800 text-5xl font-extrabold py-8`}
+              className={`${lato.className} text-gray-800 text-5xl font-extrabold pt-14 pb-8`}
             >
               MEET OUR WONDERFUL PET
             </p>
@@ -177,7 +177,7 @@ export default function PetInformation({ params }) {
             <p
               className={`${lato.className} text-gray-800 text-5xl font-extrabold py-8`}
             >
-              MORE AVAILABLE ANIMALS
+              MORE LOVABLE ANIMALS
             </p>
             <div className="flex overflow-x-auto gap-x-4 w-full pb-5 mb-16">
               {availablePets}
