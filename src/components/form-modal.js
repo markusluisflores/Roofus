@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Roboto } from "next/font/google";
+import { sampleObjectArray } from "@/sample";
 
 const roboto = Roboto({
   weight: ["100", "500", "300", "400", "700", "900"],
@@ -55,18 +56,27 @@ export default function AdoptionForm({onClose}) {
   
     if (formSubmitted) {
         return (
-          <div className="p-10 text-black font-medium text-lg">
-            <h1>Thank you for your application!</h1>
+          <div className="bg-white rounded-lg max-w-4xl max-h-25 mx-auto p-6">
+            <div className="p-10 text-black font-medium text-lg">
+              <h1>Thank you for your application!</h1>
+            </div>
           </div>
         );
     }
 
     return (
-      <form onSubmit={handleSubmit} className={`${roboto.className} max-w-4xl mx-auto p-6 bg-white rounded-lg`}>
-        <h1 className="text-2xl text-black font-bold text-center mb-8">Adoption Application Form</h1>
+      <form
+        onSubmit={handleSubmit}
+        className={`${roboto.className} max-w-4xl mx-auto p-6 bg-white rounded-lg`}
+      >
+        <h1 className="text-2xl text-black font-bold text-center mb-8">
+          Adoption Application Form
+        </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           <div>
-            <label className="block text-black text-lg font-medium mb-2">First Name</label>
+            <label className="block text-black text-lg font-medium mb-2">
+              First Name
+            </label>
             <input
               type="text"
               className="w-full text-black p-3 border border-gray-300 rounded-md"
@@ -76,7 +86,9 @@ export default function AdoptionForm({onClose}) {
             />
           </div>
           <div>
-            <label className="block text-black text-lg font-medium mb-2">Last Name</label>
+            <label className="block text-black text-lg font-medium mb-2">
+              Last Name
+            </label>
             <input
               type="text"
               className="w-full text-black p-3 border border-gray-300 rounded-md"
@@ -87,7 +99,9 @@ export default function AdoptionForm({onClose}) {
           </div>
         </div>
         <div className="mb-6">
-          <label className="block text-black text-lg font-medium mb-2">Date of Birth</label>
+          <label className="block text-black text-lg font-medium mb-2">
+            Date of Birth
+          </label>
           <input
             type="date"
             className="w-full text-black p-3 border border-gray-300 rounded-md"
@@ -97,7 +111,9 @@ export default function AdoptionForm({onClose}) {
           />
         </div>
         <div className="mb-6">
-          <label className="block text-black text-lg font-medium mb-2">Email</label>
+          <label className="block text-black text-lg font-medium mb-2">
+            Email
+          </label>
           <input
             type="email"
             className="w-full text-black p-3 border border-gray-300 rounded-md"
@@ -107,7 +123,9 @@ export default function AdoptionForm({onClose}) {
           />
         </div>
         <div className="mb-6">
-          <label className="block text-black text-lg font-medium mb-2">Phone Number</label>
+          <label className="block text-black text-lg font-medium mb-2">
+            Phone Number
+          </label>
           <input
             type="tel"
             className="w-full text-black p-3 border border-gray-300 rounded-md"
@@ -117,7 +135,9 @@ export default function AdoptionForm({onClose}) {
           />
         </div>
         <div className="mb-6">
-          <label className="block text-black text-lg font-medium mb-2">Address</label>
+          <label className="block text-black text-lg font-medium mb-2">
+            Address
+          </label>
           <input
             className="w-full text-black p-3 border border-gray-300 rounded-md"
             value={address}
@@ -153,7 +173,9 @@ export default function AdoptionForm({onClose}) {
           </div>
         </div>
         <div className="mb-6">
-          <h2 className="text-lg text-black font-medium mb-2">When it comes to pet ownership, would you consider yourself:</h2>
+          <h2 className="text-lg text-black font-medium mb-2">
+            When it comes to pet ownership, would you consider yourself:
+          </h2>
           <div className="flex flex-col gap-3">
             <div>
               <input
@@ -175,7 +197,9 @@ export default function AdoptionForm({onClose}) {
                 onChange={handleExperienceChange}
                 checked={experience === "somewhat_experienced"}
               />
-              <label className="text-black ml-2 text-l">Somewhat Experienced</label>
+              <label className="text-black ml-2 text-l">
+                Somewhat Experienced
+              </label>
             </div>
             <div>
               <input
@@ -191,14 +215,18 @@ export default function AdoptionForm({onClose}) {
           </div>
         </div>
         <div className="mb-6">
-          <label className="block text-black text-lg font-medium mb-2">Tell us more about your pet ownership experience:</label>
+          <label className="block text-black text-lg font-medium mb-2">
+            Tell us more about your pet ownership experience:
+          </label>
           <textarea
             className="w-full p-3 text-black border border-gray-300 rounded-md"
             required
           />
         </div>
         <div className="mb-6">
-          <h2 className="text-lg text-black font-medium mb-2">Are there children in your household?</h2>
+          <h2 className="text-lg text-black font-medium mb-2">
+            Are there children in your household?
+          </h2>
           <div className="flex items-center gap-6">
             <div>
               <input
@@ -225,7 +253,9 @@ export default function AdoptionForm({onClose}) {
           </div>
         </div>
         <div className="mb-6">
-          <h2 className="text-lg text-black font-medium mb-2">Are there other pets in your household?</h2>
+          <h2 className="text-lg text-black font-medium mb-2">
+            Are there other pets in your household?
+          </h2>
           <div className="flex items-center gap-6">
             <div>
               <input
@@ -252,14 +282,20 @@ export default function AdoptionForm({onClose}) {
           </div>
         </div>
         <div className="mb-6">
-          <label className="block text-black text-lg font-medium mb-2">Which pet are you interested in adopting?</label>
+          <label className="block text-black text-lg font-medium mb-2">
+            Which pet are you interested in adopting?
+          </label>
           <select
             className="w-full text-black p-3 border border-gray-300 rounded-md"
             value={selectedPet}
             onChange={handleSelectedPetChange}
           >
             <option value="">Select a pet</option>
-            <option value="testcat">Test Cat</option>
+            {sampleObjectArray.map((pet, index) => (
+              <option key={index} value={pet.name}>
+                {pet.name}
+              </option>
+            ))}
           </select>
         </div>
         <div className="flex justify-center">

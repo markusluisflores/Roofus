@@ -7,9 +7,9 @@ const roboto = Roboto({
 
 export default function AdoptionStoryCard({story}) {
   return (
-    <div className="bg-brandWhite rounded-lg shadow-md mb-2 p-4 flex-shrink-0 w-100">
+    <div className="bg-brandWhite rounded-xl shadow-md mb-2 p-4 flex-shrink-0 w-1/3">
       <div className="flex">
-        <div className="w-1/2 h-32 mr-4">
+        <div className="w-[200px] h-[200px] mr-4">
           <img
             src={story.img}
             alt={story.title}
