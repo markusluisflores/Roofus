@@ -1,4 +1,4 @@
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import { Roboto } from "next/font/google";
 
@@ -10,28 +10,28 @@ const roboto = Roboto({
 export default function PetCard(props) {
   const { pet, url } = props;
 
+  const textStyle = `${roboto.className} text-slate-900 text-xl font-medium`
+
   return (
     <Link href={url}>
-      <div className="flex flex-col shadow-md bg-brandWhite mb-5 p-2 rounded-md">
-        <div className="flex justify-center">
-          <Image
-            className="rounded-lg border"
+      <div className="flex flex-col shadow-xl bg-brandWhite p-8 rounded-lg">
+        <div className="flex justify-center w-[420px] h-[420px]">
+          <img
+            className="rounded-lg border w-full h-full object-cover"
             src={pet.img}
-            width={240}
-            height={240}
             alt="Pet Image"
           />
         </div>
         <div className={`${roboto.className}`}>
-          <p className="text-black text-lg text-center font-bold mt-1">
-            {pet.name}
+          <p className="text-4xl text-center font-bold my-5 text-brandRed">
+            {pet.name.toUpperCase()}
           </p>
-          <hr className="w-full h-1 border-gray-500 my-1" />
-          <p className="text-black text-xs">Age: {pet.age}</p>
-          <p className="text-black text-xs">Gender: {pet.gender}</p>
-          <p className="text-black text-xs">Breed: {pet.breed}</p>
-          <p className="text-black text-xs">Size: {pet.size}</p>
-          <p className="text-black text-xs">Type: {pet.type}</p>
+          <hr className="w-full h-1 border-gray-500 mb-2" />
+          <p className={textStyle}>Age: {pet.age}</p>
+          <p className={textStyle}>Gender: {pet.sex}</p>
+          <p className={textStyle}>Breed: {pet.breed}</p>
+          <p className={textStyle}>Size: {pet.size}</p>
+          <p className={textStyle}>Type: {pet.type}</p>
         </div>
       </div>
     </Link>
