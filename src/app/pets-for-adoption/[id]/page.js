@@ -88,7 +88,7 @@ export default function PetInformation({ params }) {
     <main>
       {showForm && (
         <div
-          className="absolute insert-0 min-h-screen w-screen flex items-center justify-center bg-gray-950/70 py-48"
+          className="absolute insert-0 min-h-screen w-screen flex items-center justify-center bg-gray-950/70 py-96"
           onClick={handleShowForm}
         >
           <div onClick={(event) => event.stopPropagation()}>
