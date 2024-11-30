@@ -29,7 +29,7 @@ export default function Login({ closeLoginModal }) {
     return (
         <div
             onClick={closeLoginModal}
-            className="absolute h-full w-full flex items-center justify-center bg-gray-950/70"
+            className="absolute z-50 h-full w-full flex items-center justify-center bg-gray-950/70"
         >
             <div
                 onClick={(event) => { event.stopPropagation() }}

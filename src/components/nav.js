@@ -6,6 +6,8 @@ import { Roboto } from "next/font/google";
 import { usePathname } from "next/navigation";
 import { useUserAuth } from "@/_utils/auth-context";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import Login from "./login";
 
 const roboto = Roboto({
   weight: ["100", "500", "300", "400", "700", "900"],
@@ -18,10 +20,14 @@ const listItemStyle =
 const activeItemStyle =
   "flex w-16 mx-2 px-2 py-1 rounded-md items-center justify-center transition-colors duration-500 transition-all transition-delay-500 text-brandRed bg-brandWhite text-xl font-bold";
 
-export default function NavBar({ openLoginModal }) {
+export default function NavBar() {
   const pathname = usePathname();
   const router = useRouter();
 
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+
+  const openLogin = () => setIsLoginOpen(true);
+  const closeLogin = () => setIsLoginOpen(false);
 
   const { user, firebaseSignOut } = useUserAuth();
 
@@ -35,44 +41,47 @@ export default function NavBar({ openLoginModal }) {
   }
 
   return (
-    <nav className="flex justify-between items-center fixed w-screen shadow-lg bg-brandRed px-10 h-20 z-30">
-      <Link href="/">
-        <Image
-          src="/assets/logo/roofus_logo_white.png"
-          alt="logo"
-          width={120}
-          height={120}
-        />
-      </Link>
-      <ul
-        className={`${roboto.className} flex text-brandWhite text-lg h-full items-center`}
-      >
-        <li className={pathname === "/" ? activeItemStyle : listItemStyle}>
-          <Link href="/">Home</Link>
-        </li>
-        <li
-          className={
-            pathname === "/pets-for-adoption" ? activeItemStyle : listItemStyle
-          }
+    <>
+      <nav className="flex justify-between items-center fixed w-screen shadow-lg bg-brandRed px-10 h-20 z-30">
+        <Link href="/">
+          <Image
+            src="/assets/logo/roofus_logo_white.png"
+            alt="logo"
+            width={120}
+            height={120}
+          />
+        </Link>
+        <ul
+          className={`${roboto.className} flex text-brandWhite text-lg h-full items-center`}
         >
-          <Link href="/pets-for-adoption">Adopt</Link>
-        </li>
-        <li className={pathname === "/about" ? activeItemStyle : listItemStyle}>
-          <Link href="/about">About</Link>
-        </li>
-        <li className={pathname === "/login" ? activeItemStyle : listItemStyle}>
-          {
-            user ?
-              (
-                <button onClick={handleSignOut}>Logout</button>
-              ) : (
-                <button onClick={openLoginModal}>Login</button>
-              )
+          <li className={pathname === "/" ? activeItemStyle : listItemStyle}>
+            <Link href="/">Home</Link>
+          </li>
+          <li
+            className={
+              pathname === "/pets-for-adoption" ? activeItemStyle : listItemStyle
+            }
+          >
+            <Link href="/pets-for-adoption">Adopt</Link>
+          </li>
+          <li className={pathname === "/about" ? activeItemStyle : listItemStyle}>
+            <Link href="/about">About</Link>
+          </li>
+          <li className={pathname === "/login" ? activeItemStyle : listItemStyle}>
+            {
+              user ?
+                (
+                  <button onClick={handleSignOut}>Logout</button>
+                ) : (
+                  <button onClick={openLogin}>Login</button>
+                )
 
-          }
+            }
 
-        </li>
-      </ul>
-    </nav>
+          </li>
+        </ul>
+      </nav>
+      {isLoginOpen && <Login closeLoginModal={closeLogin} />}
+    </>
   );
 }
