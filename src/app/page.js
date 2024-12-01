@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import Login from "@/components/login";
 import NavBar from "@/components/nav";
 import PetCard from "@/components/pet-card";
 import AdoptionStoryCard from "@/components/story-card";
@@ -16,11 +15,7 @@ const roboto = Roboto({
 
 
 export default function Home() {
-  const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [pets, setPets] = useState([]);
-
-  const openLogin = () => setIsLoginOpen(true);
-  const closeLogin = () => setIsLoginOpen(false);
 
   useEffect(() => {
     const retrievePets = async () => {
@@ -41,7 +36,7 @@ export default function Home() {
 
     retrievePets();
   }, []);
-  
+
   const petOfTheMonth = {
     name: "Tater Tot",
     img: "https://www.catreporter.com/wp-content/uploads/2023/07/0.jpg",
@@ -50,13 +45,12 @@ export default function Home() {
 
   const featuredPets = pets.map((pet, index) => {
     const petUrl = `/pets-for-adoption/${pet.id}`;
-      return <PetCard key={index} pet={pet} url={petUrl} />;
+    return <PetCard key={index} pet={pet} url={petUrl} />;
   });
 
   return (
     <main>
-      <NavBar openLoginModal={openLogin} />
-      {isLoginOpen && <Login closeLoginModal={closeLogin} />}
+      <NavBar />
 
       <section
         className="relative bg-cover bg-center h-screen"
