@@ -99,7 +99,7 @@ export default function PetForm({ closeForm }) {
                     className={`${roboto.className} max-w-4xl mx-auto p-6 bg-white rounded-lg`}
                 >
                     <h1 className="text-2xl text-black font-bold text-center mb-8">
-                        Adoption Application Form
+                        Add Pet
                     </h1>
                     <div className="mb-6">
                         <label className="block text-black text-lg font-medium mb-2">
