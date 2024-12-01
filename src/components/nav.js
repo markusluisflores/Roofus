@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Roboto } from "next/font/google";
-import { usePathname } from "next/navigation";
+import { redirect, usePathname } from "next/navigation";
 import { useUserAuth } from "@/_utils/auth-context";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -15,10 +15,10 @@ const roboto = Roboto({
 });
 
 const listItemStyle =
-  "flex w-16 mx-2 px-2 py-1 rounded-md items-center justify-center duration-500 transition-all hover:underline hover:underline-offset-8 hover:decoration-brandWhite hover:transition-delay-500 text-xl";
+  "flex w-18 mx-2 px-2 py-1 rounded-md items-center justify-center duration-500 transition-all hover:underline hover:underline-offset-8 hover:decoration-brandWhite hover:transition-delay-500 text-xl";
 
 const activeItemStyle =
-  "flex w-16 mx-2 px-2 py-1 rounded-md items-center justify-center transition-colors duration-500 transition-all transition-delay-500 text-brandRed bg-brandWhite text-xl font-bold";
+  "flex w-18 mx-2 px-2 py-1 rounded-md items-center justify-center transition-colors duration-500 transition-all transition-delay-500 text-brandRed bg-brandWhite text-xl font-bold";
 
 export default function NavBar() {
   const pathname = usePathname();
@@ -34,10 +34,10 @@ export default function NavBar() {
   async function handleSignOut() {
     try {
       await firebaseSignOut();
+      redirect('/');
     } catch (error) {
       console.log(error);
     }
-    router.refresh();
   }
 
   return (
@@ -57,6 +57,13 @@ export default function NavBar() {
           <li className={pathname === "/" ? activeItemStyle : listItemStyle}>
             <Link href="/">Home</Link>
           </li>
+          {
+            user &&
+            <li className={pathname === "/dashboard" ? activeItemStyle : listItemStyle}>
+              <Link href="/dashboard">Dashboard</Link>
+            </li>
+          }
+
           <li
             className={
               pathname === "/pets-for-adoption" ? activeItemStyle : listItemStyle
