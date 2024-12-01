@@ -76,19 +76,23 @@ export default function Home() {
       </section>
 
       <section className="py-12 bg-gray-100">
-        <h2 className="text-3xl font-bold text-center text-black mb-8">
-          Pet of the Month: {petOfTheMonth.name}
-        </h2>
-        <div className="flex justify-center items-center space-x-8 px-4">
-          <div className="w-80 h-80 overflow-hidden rounded-lg shadow-md">
-            <img
-              src={petOfTheMonth.img}
-              alt="Pet of the Month"
-              className="w-full h-full"
-            />
-          </div>
-          <div className="max-w-xl text-lg text-black">
-            <p>{petOfTheMonth.story}</p>
+        <div className="bg-brandRed justify-center items-center mx-72 py-10">
+          <h2 className="text-3xl font-bold text-center text-white mb-8">
+            Pet of the Month: {petOfTheMonth.name}
+          </h2>
+          <div className="flex justify-center items-center space-x-8 px-4">
+            <div className="w-80 h-80 overflow-hidden rounded-lg shadow-md border-4 border-white p-2 bg-gray-200">
+              <img
+                src={petOfTheMonth.img}
+                alt="Pet of the Month"
+                className="w-full h-full"
+              />
+            </div>
+            <div className="max-w-xl text-lg text-white">
+              <hr className="mb-10"></hr>
+              <p>{petOfTheMonth.story}</p>
+              <hr className="mt-10"></hr>
+            </div>
           </div>
         </div>
       </section>
