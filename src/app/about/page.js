@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import NavBar from "@/components/nav";
 import { Roboto } from "next/font/google";
 
@@ -10,15 +11,15 @@ export default function About() {
   return (
     <main>
       <NavBar currentPage="About" />
-      <div className="pt-28 px-6">
+      <div className="pt-28 px-20">
         <div className="bg-brandWhite mb-8 p-6 flex flex-wrap">
           <div className="w-full md:w-1/2 pr-4">
             <h2
-              className={`${roboto.className} text-3xl font-bold text-black mb-10`}
+              className={`${roboto.className} text-3xl font-bold text-gray-800 mb-10 underline underline-offset-4`}
             >
               About Us
             </h2>
-            <div className={`${roboto.className} text-lg text-black`}>
+            <div className={`${roboto.className} text-lg text-black pr-8`}>
               <p>
                 Roofus was created to connect pets seeking a loving home with
                 their future families. While this is currently a mock website
@@ -37,13 +38,13 @@ export default function About() {
           <div className="w-full md:w-1/2">
             <img
               src="/assets/logo/roofus_transparent_cropped.png"
-              alt=""
-              className="w-full h-full object-cover rounded"
+              alt="logo"
+              className="w-full h-full rounded object-scale-down"
             />
           </div>
           <hr className="w-full h-1 border-gray-500 mb-2 mt-20" />
           <div className="pt-20">
-            <h2 className={`${roboto.className} text-3xl font-bold text-black`}>
+            <h2 className={`${roboto.className} text-3xl font-bold text-gray-800 underline underline-offset-4`}>
               Meet Our Pets
             </h2>
           </div>
@@ -59,11 +60,11 @@ export default function About() {
           </div>
           <div className="w-full md:w-1/2 pl-4 order-1 md:order-2">
             <h2
-              className={`${roboto.className} text-2xl font-bold text-black mb-4`}
+              className={`${roboto.className} text-2xl font-bold text-black mb-4 px-4`}
             >
               Rufus
             </h2>
-            <div className={`${roboto.className} text-lg text-black`}>
+            <div className={`${roboto.className} text-lg text-black px-4`}>
               <p className="mb-5">
                 For nearly 18 years, Rufus lived a long, fulfilling, and
                 adventurous life with his family. He was adopted in Florida,
@@ -106,11 +107,11 @@ export default function About() {
         <div className="bg-brandWhite rounded-xl shadow-lg mb-8 p-6 flex flex-wrap">
           <div className="w-full md:w-1/2 pl-4 order-1 md:order-2">
             <h2
-              className={`${roboto.className} text-2xl font-bold text-black mb-4`}
+              className={`${roboto.className} text-2xl font-bold text-black mb-4 px-4`}
             >
               Brownie
             </h2>
-            <div className={`${roboto.className} text-lg text-black`}>
+            <div className={`${roboto.className} text-lg text-black px-4`}>
               <p className="mb-5 mr-5">
                 Brownie joined the Michaud family after a week of relentless
                 begging from Renee and her brother Sam to their parents. As a
@@ -156,11 +157,11 @@ export default function About() {
           </div>
           <div className="w-full md:w-1/2 pl-4 order-1 md:order-2">
             <h2
-              className={`${roboto.className} text-2xl font-bold text-black mb-4`}
+              className={`${roboto.className} text-2xl font-bold text-black mb-4 px-4`}
             >
               Sooty
             </h2>
-            <div className={`${roboto.className} text-lg text-black`}>
+            <div className={`${roboto.className} text-lg text-black px-4`}>
               <p className="mb-5">
                 The newest addition to the family, Sooty, was brought home from
                 Edmonton as a very young kitten, only being a month old at the
@@ -199,11 +200,11 @@ export default function About() {
         <div className="bg-brandWhite rounded-xl shadow-lg mb-8 p-6 flex flex-wrap">
           <div className="w-full md:w-1/2 pl-4 order-1 md:order-2">
             <h2
-              className={`${roboto.className} text-2xl font-bold text-black mb-4`}
+              className={`${roboto.className} text-2xl font-bold text-black mb-4 px-4`}
             >
               Yuna
             </h2>
-            <div className={`${roboto.className} text-lg text-black`}>
+            <div className={`${roboto.className} text-lg text-black px-4`}>
               <p className="mb-5 mr-5">
                 Yuna is a golden retriever with a story as warm as her
                 personality. Born in the Philippines, she moved to Calgary at
@@ -241,11 +242,11 @@ export default function About() {
           </div>
           <div className="w-full md:w-1/2 pl-4 order-1 md:order-2">
             <h2
-              className={`${roboto.className} text-2xl font-bold text-black mb-4`}
+              className={`${roboto.className} text-2xl font-bold text-black mb-4 px-4`}
             >
               Maxi
             </h2>
-            <div className={`${roboto.className} text-lg text-black`}>
+            <div className={`${roboto.className} text-lg text-black px-4`}>
               <p className="mb-5">
                 Maxi is a playful Shih Tzu and is the cutest member of the
                 Flores family. She spends her day playing with her ball and

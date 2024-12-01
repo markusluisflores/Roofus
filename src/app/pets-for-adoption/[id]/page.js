@@ -88,7 +88,7 @@ export default function PetInformation({ params }) {
     <main>
       {showForm && (
         <div
-          className="absolute insert-0 min-h-screen w-screen flex items-center justify-center bg-gray-950/70 py-96"
+          className="fixed inset-0 z-50 h-full w-full flex items-center justify-center bg-gray-950/70"
           onClick={handleShowForm}
         >
           <div onClick={(event) => event.stopPropagation()}>
@@ -113,9 +113,9 @@ export default function PetInformation({ params }) {
         <div className="flex flex-col items-center h-screen w-screen pt-14">
           <div className="flex flex-col w-[1200px]">
             <p
-              className={`${lato.className} text-gray-800 text-5xl font-extrabold pt-14 pb-8`}
+              className={`${roboto.className} text-gray-800 text-4xl font-bold pt-14 pb-8 underline underline-offset-4`}
             >
-              MEET OUR WONDERFUL PET
+              Meet Our Awesome Pet
             </p>
             <div className="flex mb-5">
               <div className="mr-5 h-[600px] w-[600px]">
@@ -175,11 +175,11 @@ export default function PetInformation({ params }) {
             </div>
             {/* Carousel section */}
             <p
-              className={`${lato.className} text-gray-800 text-5xl font-extrabold py-8`}
+              className={`${roboto.className} text-gray-800 text-4xl font-bold py-8 underline underline-offset-4`}
             >
-              MORE LOVABLE ANIMALS
+              More Loveable Animals
             </p>
-            <div className="flex overflow-x-auto gap-x-4 w-full pb-5 mb-16">
+            <div className="flex overflow-x-auto gap-x-4 w-full pb-5 mb-16 scrollbar-thin">
               {availablePets}
             </div>
           </div>
