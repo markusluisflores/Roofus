@@ -33,10 +33,10 @@ export default function About() {
               </p>
             </div>
           </div>
-          {/* Maybe a photo of us or something? Whatever you guys want to place here */}
+          {/* Logo here for now, could maybe add a photo of us or something? Whatever you guys want to place here */}
           <div className="w-full md:w-1/2">
             <img
-              src="/photoofus?.jpg"
+              src="/assets/logo/roofus_transparent_cropped.png"
               alt=""
               className="w-full h-full object-cover rounded"
             />
@@ -79,12 +79,13 @@ export default function About() {
                 Rufus was a very affectionate cat who loved being close to his
                 owners, especially as he grew older. He could often be found
                 curled up on someone's lap or sharing a pillow with them at
-                night. He was content simply to be included; when Renee was a
-                child Rufus would even let her put a bonnet on his head and push
-                him around in a stroller. A true foodie, Rufus had a particular
-                love for ice cream, chicken, and cool ranch doritos on the odd
-                occasion he managed to sneak a taste. He was also deeply in tune
-                with human emotions, always offering comfort during tough times.
+                night. He was content simply to be included — when Renee was a
+                child, Rufus would even let her put a bonnet on his head and
+                push him around in a stroller. A true foodie, Rufus had a
+                particular love for ice cream, chicken, and cool ranch doritos
+                on the odd occasion he managed to sneak a taste. He was also
+                deeply in tune with human emotions, always offering comfort
+                during tough times.
               </p>
               <p className="mb-5">
                 Some of Rufus's favorite activities included lounging by the
@@ -121,7 +122,7 @@ export default function About() {
               <p className="mb-5 mr-5">
                 Despite her small stature and adorable face, Brownie is fiercely
                 protective of her family and is fully convinced that she's a
-                fearsome guard dog. Her family often jokes that she resemblance
+                fearsome guard dog. Her family often jokes that she resembles
                 the Lorax, Frank Gallagher, or even her owner Peter. Known as
                 the diva of the household, Brownie often refuses to eat her own
                 food, preffering to hold out for the "good stuff" like chicken,
@@ -175,7 +176,7 @@ export default function About() {
                 human-like or dog-like behaviors, such as petting humans back
                 when they pet him or playing fetch with his favorite pom-pom.
                 Renee often refers to Sooty as her "child" because he follows
-                her everywhere and sleeps in the crook of her arm every night
+                her everywhere and sleeps in the crook of her arm every night,
                 sometimes even tucked under the covers like a baby.
               </p>
               <p className="mb-5 mr-5">
@@ -183,7 +184,7 @@ export default function About() {
                 pom-pom around, and birdwatching from the window. He has a
                 fascination with bags and cardboard boxes and loves car rides,
                 where he sits in a "car seat" (which is actually just a
-                cardboard box). Sooty also has a special fondness for Christmas,
+                cardboard box). Sooty has a special fondness for Christmas,
                 especially the tree, which he takes great pleasure in knocking
                 ornaments off of. He also has a particular set of drink coasters
                 and a suitcase handle that he loves to lick, though no one has
@@ -200,16 +201,31 @@ export default function About() {
             <h2
               className={`${roboto.className} text-2xl font-bold text-black mb-4`}
             >
-              Pet Name
+              Yuna
             </h2>
             <div className={`${roboto.className} text-lg text-black`}>
-              <p className="mb-5 mr-5">Description</p>
+              <p className="mb-5 mr-5">
+                Yuna is a golden retriever with a story as warm as her
+                personality. Born in the Philippines, she moved to Calgary at
+                five years old and has embraced her new home with boundless joy.
+                She’s a foodie at heart, with a soft spot for peanut butter,
+                yogurt, and pup cups from coffee shops.
+              </p>
+              <p className="mb-5 mr-5">
+                Whether she’s chasing a ball, swimming in the river, rolling in
+                the grass, or playing in the snow (and sneaking a bite of it),
+                Yuna lives life with contagious enthusiasm. True to her breed,
+                she’s endlessly affectionate and loves nothing more than
+                cuddling with her favorite humans. While she’s every bit the
+                playful and loving golden retriever, Yuna’s extra-special charm
+                and wholehearted love make her one of a kind.
+              </p>
             </div>
           </div>
           <div className="w-full md:w-1/2 order-2 md:order-3">
             <img
-              src="/assets/about/replacewithyourpetpic.png"
-              alt=""
+              src="/assets/about/yuna.jpg"
+              alt="Yuna the Dog"
               className="w-full object-cover rounded h-[700px]"
             />
           </div>
@@ -218,7 +234,7 @@ export default function About() {
         <div className="bg-brandWhite rounded-xl shadow-lg mb-8 p-6 flex flex-wrap">
           <div className="w-full md:w-1/2 order-2 md:order-1">
             <img
-              src="/assets/about/replacewithyourpetpic.png"
+              src="/assets/about/maxi.jpg"
               alt=""
               className="w-full  h-[700px] object-cover rounded"
             />
@@ -227,10 +243,19 @@ export default function About() {
             <h2
               className={`${roboto.className} text-2xl font-bold text-black mb-4`}
             >
-              Pet Name
+              Maxi
             </h2>
             <div className={`${roboto.className} text-lg text-black`}>
-              <p className="mb-5">Description</p>
+              <p className="mb-5">
+                Maxi is a playful Shih Tzu and is the cutest member of the
+                Flores family. She spends her day playing with her ball and
+                giving dirty looks to stray cats. She's everyone's favorite pet
+                and constantly grabs the attention of visitors. Everyone in the
+                neighborhood knows Maxi and all the other dogs' heads turn when
+                she passes by (she's like the equivalent of a popular high
+                school cheerleader to them). Don't even bother to try to take
+                Maxi's ball or you will suffer her wrath!
+              </p>
             </div>
           </div>
         </div>

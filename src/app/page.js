@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import Login from "@/components/login";
 import NavBar from "@/components/nav";
 import PetCard from "@/components/pet-card";
 import AdoptionStoryCard from "@/components/story-card";
@@ -15,11 +14,7 @@ const roboto = Roboto({
 });
 
 export default function Home() {
-  const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [pets, setPets] = useState([]);
-
-  const openLogin = () => setIsLoginOpen(true);
-  const closeLogin = () => setIsLoginOpen(false);
 
   useEffect(() => {
     const retrievePets = async () => {
@@ -55,8 +50,7 @@ export default function Home() {
 
   return (
     <main>
-      <NavBar openLoginModal={openLogin} />
-      {isLoginOpen && <Login closeLoginModal={closeLogin} />}
+      <NavBar />
 
       <section
         className="relative bg-cover bg-center h-screen"
@@ -100,7 +94,6 @@ export default function Home() {
           </div>
         </section>
         <hr className="border-black" />
-
         <section className="py-12 bg-brandWhite">
           <h2 className="text-3xl font-bold text-black m-5 mb-8">
             Featured Pets
