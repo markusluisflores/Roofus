@@ -1,10 +1,11 @@
 "use client";
 
 import NavBar from "@/components/nav";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DashboardCard from "@/components/dashboard-card";
 import { useUserAuth } from "@/_utils/auth-context";
 import PetForm from "@/components/pet-form-modal";
+import DashboardPetCard from "@/components/dashboard-pet-card";
 
 export default function Dashboard() {
 
@@ -12,13 +13,31 @@ export default function Dashboard() {
   const [adoptionForms, setAdoptionForms] = useState([]);
   const [submittedForms, setSubmittedForms] = useState([]);
   const [showForm, setShowForm] = useState(false);
+  const [petList, setPetList] = useState([]);
+  const [openType, setOpenType] = useState('');
+  const [currentPetId, setCurrentPetId] = useState('');
 
   // Temporary, not sure how we will implement this yet
   // Change this to "customer" if you want to render the other dashboard
   const [userRole, setUserRole] = useState("admin");
 
-  const openForm = () => setShowForm(true);
+  const openForm = (openTypeParam, petId) => {
+    setOpenType(openTypeParam);
+    setCurrentPetId(petId);
+    setShowForm(true);
+  }
   const closeForm = () => setShowForm(false);
+
+  async function getAllPets() {
+    const response = await fetch("http://localhost:3000/api/pets");
+    const data = await response.json();
+    console.log(data);
+    setPetList(data);
+  }
+
+  useEffect(() => {
+    getAllPets();
+  }, []);
 
   return (
     <main>
@@ -30,7 +49,11 @@ export default function Dashboard() {
               {/* admin dashboard */}
               {
                 showForm &&
-                <PetForm closeForm={closeForm} />
+                <PetForm
+                  closeForm={closeForm}
+                  openType={openType}
+                  petId={currentPetId}
+                />
               }
               <div className="flex flex-wrap justify-center gap-8 px-8 pt-28">
                 <DashboardCard
@@ -38,16 +61,16 @@ export default function Dashboard() {
                   icon="/assets/dashboard/plus.png"
                   openForm={openForm}
                 />
-                <DashboardCard
-                  title="Edit Pet"
-                  icon="/assets/dashboard/pencil-simple.png"
-                  openForm={() => { }}
-                />
-                <DashboardCard
-                  title="Delete Pet"
-                  icon="/assets/dashboard/minus.png"
-                  openForm={() => { }}
-                />
+                {petList.map((pet) => (
+                  <DashboardPetCard
+                    key={pet.id}
+                    name={pet.name}
+                    petId={pet.id}
+                    photo={pet.img}
+                    openForm={openForm}
+                  />
+                ))}
+
               </div>
               <div className="relative bg-cover bg-center px-8 py-16">
                 <h2 className="text-2xl font-bold mt-8 text-black">
