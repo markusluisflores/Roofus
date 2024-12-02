@@ -7,7 +7,7 @@ const roboto = Roboto({
     subsets: ["latin"],
 });
 
-export default function PetForm({ closeForm, openType, petId }) {
+export default function PetForm({ closeForm, openType, petId, setRefresh }) {
 
     const [name, setName] = useState("");
     const [age, setAge] = useState("");
@@ -19,6 +19,7 @@ export default function PetForm({ closeForm, openType, petId }) {
     const [type, setType] = useState("Cat");
     const [petImg, setPetImg] = useState("");
     const [formSubmitted, setFormSubmitted] = useState(false);
+    const [originalPetType, setOriginalPetType] = useState("");
 
     const handleNameChange = (event) => setName(event.target.value);
     const handleAgeChange = (event) => setAge(event.target.value);
@@ -45,7 +46,7 @@ export default function PetForm({ closeForm, openType, petId }) {
     }
 
     async function getPetImage(artId) {
-        if (type == "cat") {
+        if (type == "Cat") {
             try {
                 const response = await fetch(
                     `https://api.thecatapi.com/v1/images/search`
@@ -97,6 +98,7 @@ export default function PetForm({ closeForm, openType, petId }) {
                 const response = await fetch(request);
                 if (response.ok) {
                     console.log("Success");
+                    setRefresh((prev) => prev + 1);
                     closeForm();
                     // TODO: Display success message in the ui
                 }
@@ -105,7 +107,45 @@ export default function PetForm({ closeForm, openType, petId }) {
             }
         }
         else {
+            let petUrl
+            console.log("Original pet type is" + originalPetType);
+            if (originalPetType != type) {
+                petUrl = await getPetImage();
+            }
+            else {
+                petUrl = petImg;
+            }
 
+            let editedDogObj = {
+                name: name,
+                age: age,
+                breed: breed,
+                description: description,
+                location: location,
+                sex: sex,
+                size: size,
+                type: type,
+                img: petUrl
+            }
+            let request = new Request(
+                `http://localhost:3000/api/pets/${petId}`,
+                {
+                    method: "PUT",
+                    body: JSON.stringify(editedDogObj)
+                }
+            );
+
+            try {
+                const response = await fetch(request);
+                if (response.ok) {
+                    console.log("Success");
+                    setRefresh((prev) => prev + 1);
+                    closeForm();
+                    // TODO: Display success message in the ui
+                }
+            } catch (error) {
+                console.log(error);
+            }
         }
     }
 
@@ -122,6 +162,7 @@ export default function PetForm({ closeForm, openType, petId }) {
         setSize(data.size);
         setType(data.type);
         setPetImg(data.img);
+        setOriginalPetType(data.type);
     }
 
     useEffect(() => {

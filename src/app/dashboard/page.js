@@ -16,6 +16,7 @@ export default function Dashboard() {
   const [petList, setPetList] = useState([]);
   const [openType, setOpenType] = useState('');
   const [currentPetId, setCurrentPetId] = useState('');
+  const [refresh, setRefresh] = useState(0);
 
   // Temporary, not sure how we will implement this yet
   // Change this to "customer" if you want to render the other dashboard
@@ -31,13 +32,12 @@ export default function Dashboard() {
   async function getAllPets() {
     const response = await fetch("http://localhost:3000/api/pets");
     const data = await response.json();
-    console.log(data);
     setPetList(data);
   }
 
   useEffect(() => {
     getAllPets();
-  }, []);
+  }, [refresh]);
 
   return (
     <main>
@@ -53,6 +53,7 @@ export default function Dashboard() {
                   closeForm={closeForm}
                   openType={openType}
                   petId={currentPetId}
+                  setRefresh={setRefresh}
                 />
               }
               <div className="flex flex-wrap justify-center gap-8 px-8 pt-28">

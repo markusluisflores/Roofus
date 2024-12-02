@@ -11,8 +11,12 @@ const roboto = Roboto({
 export default function DashboardPetCard({ name, petId, photo, openForm }) {
 
     const openViewForm = () => {
-        // Pass the petId here
         openForm("View", petId);
+    }
+
+    const openEditForm = event => {
+        event.stopPropagation();
+        openForm("Edit", petId);
     }
 
     return (
@@ -33,7 +37,7 @@ export default function DashboardPetCard({ name, petId, photo, openForm }) {
             </div>
             <div className="flex flex-row ml-auto">
                 <div
-                    onClick={(event) => event.stopPropagation()}
+                    onClick={openEditForm}
                     className="mx-1 mt-1 p-1 hover:border rounded-sm border-red-300">
                     <FaEdit size={20} />
                 </div>

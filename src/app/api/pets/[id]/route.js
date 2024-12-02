@@ -21,7 +21,7 @@ export async function PUT(request, { params }) {
     const { id } = await params;
 
     const pet = await request.json();
-
+    pet.age = Number(pet.age);
     const petSchema = z.object({
       name: z.string(),
       location: z.string(),
@@ -40,7 +40,7 @@ export async function PUT(request, { params }) {
 
     return new Response(
       JSON.stringify({ message: "Update Successful", pet: validatedPet }),
-      { status: 204 }
+      { status: 200 }
     );
   } catch (error) {
     return new Response(JSON.stringify({ error: error.message }), {
