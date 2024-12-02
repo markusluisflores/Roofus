@@ -1,7 +1,7 @@
 import { useUserAuth } from "@/_utils/auth-context";
 import Image from "next/image";
-import googleIcon from './../assets/icons/google.png';
-import githubIcon from './../assets/icons/github.png';
+import googleIcon from './../../public/assets/icons/google.png';
+import githubIcon from './../../public/assets/icons/github.png';
 
 
 export default function Login({ closeLoginModal }) {
