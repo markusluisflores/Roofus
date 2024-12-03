@@ -118,6 +118,24 @@ export default function Dashboard() {
       <div className="relative bg-cover bg-center min-h-screen">
         {user ? (
           <>
+            {
+              editAdoptionForm &&
+              <AdoptionForm
+                onClose={handleCloseEditAdoptionForm}
+                petId={adoptionformInfo.petId}
+                petName={adoptionformInfo.petName}
+                formType={"Edit"}
+                formId={adoptionformInfo.formId}
+              />
+            }
+            {
+              showDeleteAdoption &&
+              <DeleteAdoptionForm
+                closeForm={closeDeleteAdoption}
+                formInfo={currentFormInfo}
+                setRefresh={setRefresh}
+              />
+            }
             {userRole === "admin" &&
               (
                 <>
@@ -139,25 +157,6 @@ export default function Dashboard() {
                       setRefresh={setRefresh}
                     />
                   }
-                  {
-                    editAdoptionForm &&
-                    <AdoptionForm
-                      onClose={handleCloseEditAdoptionForm}
-                      petId={adoptionformInfo.petId}
-                      petName={adoptionformInfo.petName}
-                      formType={"Edit"}
-                      formId={adoptionformInfo.formId}
-                    />
-                  }
-                  {
-                    showDeleteAdoption &&
-                    <DeleteAdoptionForm
-                      closeForm={closeDeleteAdoption}
-                      formInfo={currentFormInfo}
-                      setRefresh={setRefresh}
-                    />
-                  }
-
                   <div className="flex flex-wrap gap-8 px-8 pt-28">
                     <DashboardCard
                       title="Add Pet"
