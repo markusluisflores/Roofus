@@ -10,10 +10,10 @@ module.exports = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        brandWhite: '#F7F4EF', 
-        brandRed: '#F34455', 
+        brandWhite: "#F7F4EF",
+        brandRed: "#F34455",
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar")({ nocompatible: true })],
 };

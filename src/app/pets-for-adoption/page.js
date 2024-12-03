@@ -4,22 +4,20 @@ import NavBar from "@/components/nav";
 import PetCard from "@/components/pet-card";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { Roboto, Lato } from "next/font/google";
+import { Roboto } from "next/font/google";
 
 const roboto = Roboto({
   weight: ["100", "500", "300", "400", "700", "900"],
   subsets: ["latin"],
 });
 
-const lato = Lato({
-  weight: ["100", "300", "400", "700", "900"],
-  subsets: ["latin"],
-});
 
 export default function PetsForAdoption() {
   const [pets, setPets] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [filter, setFilter] = useState("All");
+  const [filter, setFilter] = useState("all");
+
+  const handleFilterChange = (event) => setFilter(event.target.value);
 
   // Retrieve all pets
   useEffect(() => {
@@ -48,7 +46,7 @@ export default function PetsForAdoption() {
   // Create cards from retrieved pets. URL leads to their /[id] page.
   const petCards = pets.map((pet, index) => {
     const petUrl = `/pets-for-adoption/${pet.id}`;
-    if (filter === pet.type || filter === "All") {
+    if (filter === pet.type.toLowerCase() || filter === "all") {
       return <PetCard key={index} pet={pet} url={petUrl} />;
     }
   });
@@ -68,7 +66,8 @@ export default function PetsForAdoption() {
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white">
           <h1 className="text-5xl font-bold mb-4">Find Your Forever Friend</h1>
           <p className="text-xl mb-8">
-            Every one of our animals deserves a loving and caring home. Explore now to find the furry friend who will thrive with you.
+            Every one of our animals deserves a loving and caring home. Explore
+            now to find the furry friend who will thrive with you.
           </p>
         </div>
       </div>
@@ -78,12 +77,25 @@ export default function PetsForAdoption() {
       {!isLoading ? (
         <div>
           <p
-            className={`${lato.className} text-gray-800 text-5xl font-extrabold pt-28 px-20`}
+            className={`${roboto.className} text-gray-800 text-4xl font-bold pt-20 px-20 underline underline-offset-4`}
           >
-            OUR RESIDENT PARTY ANIMALS
+            Our Furry Friends
           </p>
-          <div className="flex flex-wrap w-screen self-center justify-center">
-            <div className="flex flex-wrap justify-center gap-x-6 gap-y-6 px-40 py-16">
+          <div className="flex flex-wrap w-screen self-center justify-center mt-8">
+            <div className="mb-4 align-middle">
+              <label className={`${roboto.className} text-2xl mr-4 w-40 text-black`}>
+                Select Pet Type:
+              </label>
+              <select
+                onChange={handleFilterChange}
+                className={`${roboto.className} text-black text-xl font-semibold bg-brandWhite px-2 py-1 rounded border border-gray-400`}
+              >
+                <option value="all">All</option>
+                <option value="dog">Dogs</option>
+                <option value="cat">Cats</option>
+              </select>
+            </div>
+            <div className="flex flex-wrap justify-center w-full gap-x-6 gap-y-6 pb-16">
               {petCards}
             </div>
           </div>
