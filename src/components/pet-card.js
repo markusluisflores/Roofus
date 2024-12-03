@@ -10,23 +10,26 @@ const roboto = Roboto({
 export default function PetCard(props) {
   const { pet, url } = props;
 
-  const textStyle = `${roboto.className} text-slate-900 text-xl font-medium`
+  const textStyle = `${roboto.className} text-slate-900 text-lg font-medium`;
 
   return (
-    <Link href={url}>
-      <div className="flex flex-col shadow-xl bg-brandWhite p-8 rounded-lg">
-        <div className="flex justify-center w-[420px] h-[420px]">
+    <Link
+      href={url}
+      className="bg-brandWhite rounded-xl shadow-md mb-2 p-4 flex-shrink-0 w-full max-w-[540px]"
+    >
+      <div className="sm:flex gap-x-4">
+        <div className="flex-1 w-md:shrink-0">
           <img
-            className="rounded-lg border w-full h-full object-cover"
+            className="rounded-lg border w-full h-56 object-cover"
             src={pet.img}
             alt="Pet Image"
           />
         </div>
-        <div className={`${roboto.className}`}>
+        <div className={`${roboto.className} flex-1 overflow-hidden`}>
           <p className="text-4xl text-center font-bold my-5 text-brandRed">
             {pet.name.toUpperCase()}
           </p>
-          <hr className="w-full h-1 border-gray-500 mb-2" />
+          <hr className="w-full border-gray-500 mb-2" />
           <p className={textStyle}>Age: {pet.age}</p>
           <p className={textStyle}>Gender: {pet.sex}</p>
           <p className={textStyle}>Breed: {pet.breed}</p>

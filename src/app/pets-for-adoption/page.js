@@ -11,7 +11,6 @@ const roboto = Roboto({
   subsets: ["latin"],
 });
 
-
 export default function PetsForAdoption() {
   const [pets, setPets] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -65,7 +64,7 @@ export default function PetsForAdoption() {
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white">
           <h1 className="text-5xl font-bold mb-4">Find Your Forever Friend</h1>
-          <p className="text-xl mb-8">
+          <p className="text-xl px-4 mb-8">
             Every one of our animals deserves a loving and caring home. Explore
             now to find the furry friend who will thrive with you.
           </p>
@@ -75,28 +74,32 @@ export default function PetsForAdoption() {
       {/* Task: Create a filter that changes filter state depending on cat/dog/all. Any implementation of filter is fine. */}
       {/* Cards Body */}
       {!isLoading ? (
-        <div>
-          <p
-            className={`${roboto.className} text-gray-800 text-4xl font-bold pt-20 px-20 underline underline-offset-4`}
-          >
-            Our Furry Friends
-          </p>
-          <div className="flex flex-wrap w-screen self-center justify-center mt-8">
-            <div className="mb-4 align-middle">
-              <label className={`${roboto.className} text-2xl mr-4 w-40 text-black`}>
-                Select Pet Type:
-              </label>
-              <select
-                onChange={handleFilterChange}
-                className={`${roboto.className} text-black text-xl font-semibold bg-brandWhite px-2 py-1 rounded border border-gray-400`}
-              >
-                <option value="all">All</option>
-                <option value="dog">Dogs</option>
-                <option value="cat">Cats</option>
-              </select>
-            </div>
-            <div className="flex flex-wrap justify-center w-full gap-x-6 gap-y-6 pb-16">
-              {petCards}
+        <div className="flex flex-1 w-screen justify-center">
+          <div className="flex flex-col w-5/6 justify-center align-middle">
+            <p
+              className={`${roboto.className} text-gray-800 text-4xl font-bold mt-12 underline underline-offset-4`}
+            >
+              Our Furry Friends
+            </p>
+            <div className="flex flex-wrap w-screen self-center justify-center mt-8">
+              <div className="mb-4 align-middle">
+                <label
+                  className={`${roboto.className} text-2xl mr-4 w-40 text-black`}
+                >
+                  Select Pet Type:
+                </label>
+                <select
+                  onChange={handleFilterChange}
+                  className={`${roboto.className} text-black text-xl font-semibold bg-brandWhite px-2 py-1 rounded border border-gray-400`}
+                >
+                  <option value="all">All</option>
+                  <option value="dog">Dogs</option>
+                  <option value="cat">Cats</option>
+                </select>
+              </div>
+              <div className="flex flex-wrap justify-center w-full gap-x-6 gap-y-6 pb-16 px-10">
+                {petCards}
+              </div>
             </div>
           </div>
         </div>
