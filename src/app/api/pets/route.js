@@ -16,7 +16,6 @@ export async function GET() {
 }
 
 export async function POST(request) {
-  console.log("called API Post")
   try {
     let newPet = await request.json();
     newPet.age = Number(newPet.age);

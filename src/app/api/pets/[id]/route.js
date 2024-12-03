@@ -1,4 +1,4 @@
-import { dbGetPet, dbUpdatePet } from "@/_services/pet-service";
+import { dbDeletePet, dbGetPet, dbUpdatePet } from "@/_services/pet-service";
 import { z } from "zod";
 
 export async function GET(request, { params }) {
@@ -21,7 +21,7 @@ export async function PUT(request, { params }) {
     const { id } = await params;
 
     const pet = await request.json();
-
+    pet.age = Number(pet.age);
     const petSchema = z.object({
       name: z.string(),
       location: z.string(),
@@ -40,9 +40,23 @@ export async function PUT(request, { params }) {
 
     return new Response(
       JSON.stringify({ message: "Update Successful", pet: validatedPet }),
-      { status: 204 }
+      { status: 200 }
     );
   } catch (error) {
+    return new Response(JSON.stringify({ error: error.message }), {
+      status: 404,
+    });
+  }
+}
+
+export async function DELETE(request, { params }) {
+  try {
+    const { id } = await params;
+    await dbDeletePet(id);
+
+    return new Response(null, { status: 204 });
+  } catch (error) {
+    console.log("HERE 5");
     return new Response(JSON.stringify({ error: error.message }), {
       status: 404,
     });
