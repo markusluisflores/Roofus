@@ -25,7 +25,7 @@ export default function DashboardPetCard({ name, petId, photo, openForm, openDel
     }
 
     return (
-        <div onClick={openViewForm} className="cursor-pointer flex flex-col border-brandRed border shadow-xl bg-gray-100 p-5 rounded-lg hover:shadow-2xl transition text-black ">
+        <div onClick={openViewForm} className="cursor-pointer flex flex-col border-brandRed border shadow-xl bg-gray-100 p-4 rounded-lg hover:shadow-2xl transition text-black ">
             <div className="flex justify-center bg-gray-100 rounded-lg ">
                 <div className="flex items-center justify-center">
                     <Image

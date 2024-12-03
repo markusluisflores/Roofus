@@ -24,6 +24,7 @@ export async function POST(request) {
             phoneNum: z.string(),
             address: z.string(),
             experience: z.string(),
+            experienceInfo: z.string(),
             haveKids: z.string(),
             havePets: z.string(),
             date: z.string(),

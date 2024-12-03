@@ -13,9 +13,10 @@ export default function AdoptionForm({ onClose, petId, petName }) {
 
   const [phoneNum, setPhoneNum] = useState("");
   const [address, setAddress] = useState("");
-  const [experience, setExperience] = useState("inexperienced");
-  const [haveKids, setHaveKids] = useState("no_kids");
-  const [havePets, setHavePets] = useState("no_pets");
+  const [experience, setExperience] = useState("Inexperienced");
+  const [experienceInfo, setExperienceInfo] = useState("");
+  const [haveKids, setHaveKids] = useState("No");
+  const [havePets, setHavePets] = useState("No");
 
   const [formSubmitted, setFormSubmitted] = useState(false);
 
@@ -23,6 +24,7 @@ export default function AdoptionForm({ onClose, petId, petName }) {
   const handlePhoneNumChange = (event) => setPhoneNum(event.target.value);
   const handleAddressChange = (event) => setAddress(event.target.value);
   const handleExperienceChange = (event) => setExperience(event.target.value);
+  const handleExperienceInfoChange = (event) => setExperienceInfo(event.target.value);
   const handleHaveKidsChange = (event) => setHaveKids(event.target.value);
   const handleHavePetsChange = (event) => setHavePets(event.target.value);
 
@@ -41,6 +43,7 @@ export default function AdoptionForm({ onClose, petId, petName }) {
       phoneNum: phoneNum,
       address: address,
       experience: experience,
+      experienceInfo: experienceInfo,
       haveKids: haveKids,
       havePets: havePets,
       date: today
@@ -129,9 +132,9 @@ export default function AdoptionForm({ onClose, petId, petName }) {
               type="radio"
               id="inexperienced"
               name="experience_type"
-              value="inexperienced"
+              value="Inexperienced"
               onChange={handleExperienceChange}
-              checked={experience === "inexperienced"}
+              checked={experience === "Inexperienced"}
               required
             />
             <label className="text-black ml-2 text-l">Inexperienced</label>
@@ -141,9 +144,9 @@ export default function AdoptionForm({ onClose, petId, petName }) {
               type="radio"
               id="somewhat_experienced"
               name="experience_type"
-              value="somewhat_experienced"
+              value="Somewhat Experienced"
               onChange={handleExperienceChange}
-              checked={experience === "somewhat_experienced"}
+              checked={experience === "Somewhat Experienced"}
             />
             <label className="text-black ml-2 text-l">
               Somewhat Experienced
@@ -154,9 +157,9 @@ export default function AdoptionForm({ onClose, petId, petName }) {
               type="radio"
               id="experienced"
               name="experience_type"
-              value="experienced"
+              value="Experienced"
               onChange={handleExperienceChange}
-              checked={experience === "experienced"}
+              checked={experience === "Experienced"}
             />
             <label className="text-black ml-2 text-l">Experienced</label>
           </div>
@@ -169,6 +172,9 @@ export default function AdoptionForm({ onClose, petId, petName }) {
         <textarea
           className="w-full p-3 text-black border border-gray-300 rounded-md"
           required
+          name="experienceInfo"
+          value={experienceInfo}
+          onChange={handleExperienceInfoChange}
         />
       </div>
       <div className="mb-6">
@@ -181,9 +187,9 @@ export default function AdoptionForm({ onClose, petId, petName }) {
               type="radio"
               id="kids_yes"
               name="have_kids"
-              value="yes_kids"
+              value="Yes"
               onChange={handleHaveKidsChange}
-              checked={haveKids === "yes_kids"}
+              checked={haveKids === "Yes"}
               required
             />
             <label className="ml-2 text-black text-l">Yes</label>
@@ -193,9 +199,9 @@ export default function AdoptionForm({ onClose, petId, petName }) {
               type="radio"
               id="kids_no"
               name="have_kids"
-              value="no_kids"
+              value="No"
               onChange={handleHaveKidsChange}
-              checked={haveKids === "no_kids"}
+              checked={haveKids === "No"}
             />
             <label className="ml-2 text-black text-l">No</label>
           </div>
@@ -211,9 +217,9 @@ export default function AdoptionForm({ onClose, petId, petName }) {
               type="radio"
               id="pets_yes"
               name="have_pets"
-              value="yes_pets"
+              value="Yes"
               onChange={handleHavePetsChange}
-              checked={havePets === "yes_pets"}
+              checked={havePets === "Yes"}
               required
             />
             <label className="ml-2 text-black text-l">Yes</label>
@@ -223,9 +229,9 @@ export default function AdoptionForm({ onClose, petId, petName }) {
               type="radio"
               id="pets_no"
               name="have_pets"
-              value="no_pets"
+              value="No"
               onChange={handleHavePetsChange}
-              checked={havePets === "no_pets"}
+              checked={havePets === "No"}
             />
             <label className="ml-2 text-black text-l">No</label>
           </div>
