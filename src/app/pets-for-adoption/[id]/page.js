@@ -24,6 +24,8 @@ export default function PetInformation({ params }) {
   const [petCarousel, setPetCarousel] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
+  const [petId, setPetId] = useState("");
+
 
   // On load, retrieve pet information
   useEffect(() => {
@@ -42,6 +44,7 @@ export default function PetInformation({ params }) {
         console.log(data);
 
         setPetInformation(data);
+        setPetId(id);
       } catch (error) {
         console.log(error);
       } finally {
@@ -92,7 +95,11 @@ export default function PetInformation({ params }) {
           onClick={handleShowForm}
         >
           <div onClick={(event) => event.stopPropagation()}>
-            <AdoptionForm />
+            <AdoptionForm
+              onClose={handleShowForm}
+              petId={petId}
+              petName={petInformation.name}
+            />
           </div>
         </div>
       )}

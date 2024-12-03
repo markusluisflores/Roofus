@@ -1,20 +1,21 @@
 import { useState } from "react";
 import { Roboto } from "next/font/google";
-import { sampleObjectArray } from "@/sample";
+import { useUserAuth } from "@/_utils/auth-context";
 
 const roboto = Roboto({
   weight: ["100", "500", "300", "400", "700", "900"],
   subsets: ["latin"],
 });
 
-export default function AdoptionForm({ onClose }) {
+export default function AdoptionForm({ onClose, petId, petName }) {
+
+  const { user } = useUserAuth();
 
   const [phoneNum, setPhoneNum] = useState("");
   const [address, setAddress] = useState("");
-  const [experience, setExperience] = useState("");
-  const [haveKids, setHaveKids] = useState("");
-  const [havePets, setHavePets] = useState("");
-  const [selectedPet, setSelectedPet] = useState("");
+  const [experience, setExperience] = useState("inexperienced");
+  const [haveKids, setHaveKids] = useState("no_kids");
+  const [havePets, setHavePets] = useState("no_pets");
 
   const [formSubmitted, setFormSubmitted] = useState(false);
 
@@ -25,22 +26,44 @@ export default function AdoptionForm({ onClose }) {
   const handleHaveKidsChange = (event) => setHaveKids(event.target.value);
   const handleHavePetsChange = (event) => setHavePets(event.target.value);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0');
+    var yyyy = today.getFullYear();
+    today = mm + '/' + dd + '/' + yyyy;
 
     const formData = {
-      userId,
-      phoneNum,
-      address,
-      experience,
-      haveKids,
-      havePets,
-      selectedPet,
+      userEmail: user.email,
+      petId: petId,
+      phoneNum: phoneNum,
+      address: address,
+      experience: experience,
+      haveKids: haveKids,
+      havePets: havePets,
+      date: today
     };
-
     console.log(formData);
+    let request = new Request(
+      "http://localhost:3000/api/forms",
+      {
+        method: "POST",
+        body: JSON.stringify(formData)
+      }
+    );
 
-    setFormSubmitted(true);
+    try {
+      const response = await fetch(request);
+      if (response.ok) {
+        console.log("Success");
+        setFormSubmitted(true);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+
+
   };
 
   if (formSubmitted) {
@@ -61,6 +84,11 @@ export default function AdoptionForm({ onClose }) {
       <h1 className="text-2xl text-black font-bold text-center mb-8">
         Adoption Application Form
       </h1>
+
+      <div className="block text-black text-lg font-medium mb-2">
+        Pet Name: {petName}
+      </div>
+
       <div className="mb-6">
         <label className="block text-black text-lg font-medium mb-2">
           Phone Number
@@ -70,8 +98,13 @@ export default function AdoptionForm({ onClose }) {
           className="w-full text-black p-3 border border-gray-300 rounded-md"
           value={phoneNum}
           onChange={handlePhoneNumChange}
+          pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+          maxLength={12}
           required
         />
+        <label className="block text-black text-sm mt-1">
+          Example: 123-456-7898
+        </label>
       </div>
       <div className="mb-6">
         <label className="block text-black text-lg font-medium mb-2">
@@ -98,6 +131,7 @@ export default function AdoptionForm({ onClose }) {
               value="inexperienced"
               onChange={handleExperienceChange}
               checked={experience === "inexperienced"}
+              required
             />
             <label className="text-black ml-2 text-l">Inexperienced</label>
           </div>
@@ -149,6 +183,7 @@ export default function AdoptionForm({ onClose }) {
               value="yes_kids"
               onChange={handleHaveKidsChange}
               checked={haveKids === "yes_kids"}
+              required
             />
             <label className="ml-2 text-black text-l">Yes</label>
           </div>
@@ -178,6 +213,7 @@ export default function AdoptionForm({ onClose }) {
               value="yes_pets"
               onChange={handleHavePetsChange}
               checked={havePets === "yes_pets"}
+              required
             />
             <label className="ml-2 text-black text-l">Yes</label>
           </div>
