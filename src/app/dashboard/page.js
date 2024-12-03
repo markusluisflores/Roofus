@@ -7,12 +7,12 @@ import { useUserAuth } from "@/_utils/auth-context";
 import PetForm from "@/components/pet-form-modal";
 import DashboardPetCard from "@/components/dashboard-pet-card";
 import DeletePetForm from "@/components/pet-delete-modal";
+import AdoptionFormCard from "@/components/adoption-form-card";
 
 export default function Dashboard() {
 
   const { user } = useUserAuth();
   const [adoptionForms, setAdoptionForms] = useState([]);
-  const [submittedForms, setSubmittedForms] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [showDelete, setShowDelete] = useState(false);
   const [petList, setPetList] = useState([]);
@@ -38,14 +38,35 @@ export default function Dashboard() {
   const closeDeleteForm = () => setShowDelete(false);
 
   async function getAllPets() {
-    const response = await fetch("http://localhost:3000/api/pets");
-    const data = await response.json();
-    setPetList(data);
+    try {
+      const response = await fetch("http://localhost:3000/api/pets");
+      const data = await response.json();
+      setPetList(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function getAllForms() {
+    try {
+      const response = await fetch('http://localhost:3000/api/forms');
+      const data = await response.json();
+      console.log("form data is");
+      console.log(data);
+      setAdoptionForms(data);
+    } catch (error) {
+      console.log(error)
+    }
+
   }
 
   useEffect(() => {
     getAllPets();
   }, [refresh]);
+
+  useEffect(() => {
+    getAllForms();
+  }, [])
 
   return (
     <main>
@@ -72,7 +93,7 @@ export default function Dashboard() {
                   setRefresh={setRefresh}
                 />
               }
-              <div className="flex flex-wrap justify-center gap-8 px-8 pt-28">
+              <div className="flex flex-wrap gap-8 px-8 pt-28">
                 <DashboardCard
                   title="Add Pet"
                   icon="/assets/dashboard/plus.png"
@@ -94,14 +115,13 @@ export default function Dashboard() {
                 <h2 className="text-2xl font-bold mt-8 text-black">
                   Submitted Adoption Forms
                 </h2>
-                <div className="text-black mt-4">
+                <div className="text-black mt-4 flex flex-row flex-wrap">
                   {adoptionForms.length > 0 ? (
                     adoptionForms.map((form) => (
-                      <div key={form.id} className="border-b py-2">
-                        <p>
-                          {form.name} - {form.status}
-                        </p>
-                      </div>
+                      <AdoptionFormCard
+                        key={form.id}
+                        form={form}
+                      />
                     ))
                   ) : (
                     <p>No forms submitted yet.</p>
@@ -117,8 +137,8 @@ export default function Dashboard() {
                   Your Adoption Forms
                 </h2>
                 <div className="text-black mt-4">
-                  {submittedForms.length > 0 ? (
-                    submittedForms.map((form) => (
+                  {adoptionForms.length > 0 ? (
+                    adoptionForms.map((form) => (
                       <div key={form.id} className="border-b py-2">
                         <p>
                           {form.name} - {form.status}
