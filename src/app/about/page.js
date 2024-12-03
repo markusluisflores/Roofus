@@ -11,7 +11,7 @@ export default function About() {
   return (
     <main>
       <NavBar currentPage="About" />
-      <div className="pt-28 px-20">
+      <div className="pt-8 px-10">
         <div className="bg-brandWhite mb-8 p-6 flex flex-wrap">
           <div className="w-full md:w-1/2 pr-4">
             <h2
@@ -19,7 +19,7 @@ export default function About() {
             >
               About Us
             </h2>
-            <div className={`${roboto.className} text-lg text-black pr-8`}>
+            <div className={`${roboto.className} text-lg text-black`}>
               <p>
                 Roofus was created to connect pets seeking a loving home with
                 their future families. While this is currently a mock website
@@ -42,8 +42,8 @@ export default function About() {
               className="w-full h-full rounded object-scale-down"
             />
           </div>
-          <hr className="w-full h-1 border-gray-500 mb-2 mt-20" />
-          <div className="pt-20">
+          <hr className="w-full h-1 border-gray-500 mb-2 mt-14" />
+          <div className="pt-12">
             <h2 className={`${roboto.className} text-3xl font-bold text-gray-800 underline underline-offset-4`}>
               Meet Our Pets
             </h2>
@@ -51,14 +51,14 @@ export default function About() {
         </div>
 
         <div className="bg-brandWhite rounded-xl shadow-lg mb-8 px-6 pb-6 flex flex-wrap">
-          <div className="md:w-1/2 order-2 md:order-1">
+          <div className="md:w-1/2 order-1 md:order-1 mb-5">
             <img
               src="/assets/about/rufus.png"
               alt="Rufus the Cat"
-              className="w-full  h-[700px] object-cover rounded"
+              className="w-full min-h-[360px] max-h-[700px] object-cover rounded"
             />
           </div>
-          <div className="w-full md:w-1/2 pl-4 order-1 md:order-2">
+          <div className="w-full md:w-1/2 pl-4 order-2 md:order-2">
             <h2
               className={`${roboto.className} text-2xl font-bold text-black mb-4 px-4`}
             >
@@ -105,7 +105,7 @@ export default function About() {
           </div>
         </div>
         <div className="bg-brandWhite rounded-xl shadow-lg mb-8 p-6 flex flex-wrap">
-          <div className="w-full md:w-1/2 pl-4 order-1 md:order-2">
+          <div className="w-full md:w-1/2 pl-4 order-2 md:order-1">
             <h2
               className={`${roboto.className} text-2xl font-bold text-black mb-4 px-4`}
             >
@@ -139,20 +139,20 @@ export default function About() {
               </p>
             </div>
           </div>
-          <div className="w-full md:w-1/2 order-2 md:order-3">
+          <div className="w-full md:w-1/2 order-1 md:order-2 mb-5">
             <img
               src="/assets/about/brownie.png"
               alt="Brownie the Dog"
-              className="w-full object-cover rounded h-[700px]"
+              className="w-full min-h-[360px] max-h-[700px] object-cover rounded"
             />
           </div>
         </div>
         <div className="bg-brandWhite rounded-xl shadow-lg mb-8 p-6 flex flex-wrap">
-          <div className="w-full md:w-1/2 order-2 md:order-1">
+          <div className="w-full md:w-1/2 order-1 md:order-2 mb-5">
             <img
               src="/assets/about/sooty.png"
               alt="Sooty the Cat"
-              className="w-full  h-[700px] object-cover rounded"
+              className="w-full min-h-[360px] max-h-[700px] object-cover rounded"
             />
           </div>
           <div className="w-full md:w-1/2 pl-4 order-1 md:order-2">
@@ -198,7 +198,7 @@ export default function About() {
 
         {/* Place your pets here Markus and Raymond*/}
         <div className="bg-brandWhite rounded-xl shadow-lg mb-8 p-6 flex flex-wrap">
-          <div className="w-full md:w-1/2 pl-4 order-1 md:order-2">
+          <div className="w-full md:w-1/2 pl-4 order-2 md:order-1">
             <h2
               className={`${roboto.className} text-2xl font-bold text-black mb-4 px-4`}
             >
@@ -223,21 +223,21 @@ export default function About() {
               </p>
             </div>
           </div>
-          <div className="w-full md:w-1/2 order-2 md:order-3">
+          <div className="w-full md:w-1/2 order-1 md:order-2 mb-5">
             <img
               src="/assets/about/yuna.jpg"
               alt="Yuna the Dog"
-              className="w-full object-cover rounded h-[700px]"
+              className="w-full min-h-[360px] max-h-[700px] object-cover rounded"
             />
           </div>
         </div>
 
         <div className="bg-brandWhite rounded-xl shadow-lg mb-8 p-6 flex flex-wrap">
-          <div className="w-full md:w-1/2 order-2 md:order-1">
+          <div className="w-full md:w-1/2 order-1 md:order-2 mb-5">
             <img
               src="/assets/about/maxi.jpg"
               alt=""
-              className="w-full  h-[700px] object-cover rounded"
+              className="w-full min-h-[360px] max-h-[700px] object-cover rounded"
             />
           </div>
           <div className="w-full md:w-1/2 pl-4 order-1 md:order-2">

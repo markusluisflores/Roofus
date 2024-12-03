@@ -150,15 +150,15 @@ export default function PetInformation({ params }) {
           </p>
         </div>
       ) : (
-        <div className="flex flex-col items-center h-screen w-screen pt-14">
-          <div className="flex flex-col w-[1200px]">
+        <div className="flex flex-col items-center h-screen w-screen">
+          <div className="flex flex-col items-center w-5/6 max-w-[1920px]">
             <p
-              className={`${roboto.className} text-gray-800 text-4xl font-bold pt-14 pb-8 underline underline-offset-4`}
+              className={`${roboto.className} text-gray-800 text-4xl self-start max-w-[1200px] font-bold pt-14 pb-8 underline underline-offset-4`}
             >
-              Meet Our Awesome Pet
+              Meet Our Pet
             </p>
-            <div className="flex mb-5">
-              <div className="mr-5 h-[600px] w-[600px]">
+            <div className="flex flex-col xl:flex-row gap-4 p-4 h-auto">
+              <div className="h-full w-full max-w-[1200px] max-h-[540px]">
                 {petInformation ? (
                   <img
                     className="rounded-xl w-full h-full object-cover"
@@ -171,7 +171,7 @@ export default function PetInformation({ params }) {
               </div>
               {/* Right box */}
               <div
-                className={`${roboto.className} flex flex-col justify-between w-[590px] text-lg rounded-xl p-8 bg-brandRed text-brandWhite`}
+                className={`${roboto.className} flex flex-col justify-between w-full h-auto max-w-[1200px]  text-lg rounded-xl p-8 bg-brandRed text-brandWhite`}
               >
                 {/* Section 1 */}
                 <div className="flex w-full justify-between align-middle items-center">
@@ -235,7 +235,7 @@ export default function PetInformation({ params }) {
             </div>
             {/* Carousel section */}
             <p
-              className={`${roboto.className} text-gray-800 text-4xl font-bold py-8 underline underline-offset-4`}
+              className={`${roboto.className} text-gray-800 text-4xl font-bold self-start py-8 underline underline-offset-4`}
             >
               More Loveable Animals
             </p>
