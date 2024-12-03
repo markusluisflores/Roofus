@@ -56,7 +56,6 @@ export async function DELETE(request, { params }) {
 
     return new Response(null, { status: 204 });
   } catch (error) {
-    console.log("HERE 5");
     return new Response(JSON.stringify({ error: error.message }), {
       status: 404,
     });

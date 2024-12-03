@@ -86,7 +86,7 @@ export default function PetInformation({ params }) {
     if (user) {
       checkHasForm();
     }
-  }, [user])
+  }, [user, showForm])
 
   //On load, retrieve random pets for carousel
   useEffect(() => {
@@ -122,20 +122,17 @@ export default function PetInformation({ params }) {
 
   return (
     <main>
-      {showForm && (
-        <div
-          className="fixed inset-0 z-50 h-full w-full flex items-center justify-center bg-gray-950/70"
-          onClick={handleShowForm}
-        >
-          <div onClick={(event) => event.stopPropagation()}>
-            <AdoptionForm
-              onClose={handleShowForm}
-              petId={petId}
-              petName={petInformation.name}
-            />
-          </div>
-        </div>
-      )}
+      {
+        showForm && (
+          <AdoptionForm
+            onClose={handleShowForm}
+            petId={petId}
+            petName={petInformation.name}
+            formType={"Add"}
+          />
+
+        )
+      }
       <NavBar currentPage="Pets For Adoption" />
       {isLoading ? (
         <div className="flex flex-col h-screen w-screen justify-center items-center">
