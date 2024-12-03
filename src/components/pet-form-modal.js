@@ -150,19 +150,23 @@ export default function PetForm({ closeForm, openType, petId, setRefresh }) {
     }
 
     async function getPetInfo() {
-        const response = await fetch(`http://localhost:3000/api/pets/${petId}`);
-        const data = await response.json();
-        console.log(data);
-        setName(data.name);
-        setAge(data.age);
-        setBreed(data.breed);
-        setDescription(data.description);
-        setLocation(data.location);
-        setSex(data.sex);
-        setSize(data.size);
-        setType(data.type);
-        setPetImg(data.img);
-        setOriginalPetType(data.type);
+        try {
+            const response = await fetch(`http://localhost:3000/api/pets/${petId}`);
+            const data = await response.json();
+            console.log(data);
+            setName(data.name);
+            setAge(data.age);
+            setBreed(data.breed);
+            setDescription(data.description);
+            setLocation(data.location);
+            setSex(data.sex);
+            setSize(data.size);
+            setType(data.type);
+            setPetImg(data.img);
+            setOriginalPetType(data.type);
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     useEffect(() => {
@@ -223,6 +227,8 @@ export default function PetForm({ closeForm, openType, petId, setRefresh }) {
                                 className="w-full text-black p-3 border border-gray-300 rounded-md"
                                 required
                                 value={age}
+                                min={0}
+                                max={101}
                                 onChange={handleAgeChange}
                                 disabled={isDisabled}
                             />

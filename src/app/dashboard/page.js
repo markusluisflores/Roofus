@@ -6,6 +6,7 @@ import DashboardCard from "@/components/dashboard-card";
 import { useUserAuth } from "@/_utils/auth-context";
 import PetForm from "@/components/pet-form-modal";
 import DashboardPetCard from "@/components/dashboard-pet-card";
+import DeletePetForm from "@/components/pet-delete-modal";
 
 export default function Dashboard() {
 
@@ -13,6 +14,7 @@ export default function Dashboard() {
   const [adoptionForms, setAdoptionForms] = useState([]);
   const [submittedForms, setSubmittedForms] = useState([]);
   const [showForm, setShowForm] = useState(false);
+  const [showDelete, setShowDelete] = useState(false);
   const [petList, setPetList] = useState([]);
   const [openType, setOpenType] = useState('');
   const [currentPetId, setCurrentPetId] = useState('');
@@ -28,6 +30,12 @@ export default function Dashboard() {
     setShowForm(true);
   }
   const closeForm = () => setShowForm(false);
+
+  const openDeleteForm = (petId) => {
+    setCurrentPetId(petId);
+    setShowDelete(true);
+  }
+  const closeDeleteForm = () => setShowDelete(false);
 
   async function getAllPets() {
     const response = await fetch("http://localhost:3000/api/pets");
@@ -56,6 +64,14 @@ export default function Dashboard() {
                   setRefresh={setRefresh}
                 />
               }
+              {
+                showDelete &&
+                <DeletePetForm
+                  closeForm={closeDeleteForm}
+                  petId={currentPetId}
+                  setRefresh={setRefresh}
+                />
+              }
               <div className="flex flex-wrap justify-center gap-8 px-8 pt-28">
                 <DashboardCard
                   title="Add Pet"
@@ -69,6 +85,7 @@ export default function Dashboard() {
                     petId={pet.id}
                     photo={pet.img}
                     openForm={openForm}
+                    openDeleteForm={openDeleteForm}
                   />
                 ))}
 

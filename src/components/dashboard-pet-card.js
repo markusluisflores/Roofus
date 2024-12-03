@@ -8,15 +8,20 @@ const roboto = Roboto({
     subsets: ["latin"],
 });
 
-export default function DashboardPetCard({ name, petId, photo, openForm }) {
+export default function DashboardPetCard({ name, petId, photo, openForm, openDeleteForm }) {
 
     const openViewForm = () => {
         openForm("View", petId);
     }
 
-    const openEditForm = event => {
+    const openEditForm = (event) => {
         event.stopPropagation();
         openForm("Edit", petId);
+    }
+
+    const openDeleteConfirmation = (event) => {
+        event.stopPropagation();
+        openDeleteForm(petId);
     }
 
     return (
@@ -42,7 +47,7 @@ export default function DashboardPetCard({ name, petId, photo, openForm }) {
                     <FaEdit size={20} />
                 </div>
                 <div
-                    onClick={(event) => event.stopPropagation()}
+                    onClick={openDeleteConfirmation}
                     className="mx-1 mt-1 p-1 hover:border rounded-sm border-red-300">
                     <RiDeleteBin6Line size={20} />
                 </div>
