@@ -8,6 +8,7 @@ import Image from "next/image";
 import { Roboto, Lato } from "next/font/google";
 import { useEffect, useState } from "react";
 import AdoptionForm from "@/components/form-modal";
+import { useUserAuth } from "@/_utils/auth-context";
 
 const roboto = Roboto({
   weight: ["100", "500", "300", "400", "700", "900"],
@@ -25,7 +26,9 @@ export default function PetInformation({ params }) {
   const [isLoading, setIsLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [petId, setPetId] = useState("");
+  const [hasForm, setHasForm] = useState("");
 
+  const { user } = useUserAuth();
 
   // On load, retrieve pet information
   useEffect(() => {
@@ -54,6 +57,36 @@ export default function PetInformation({ params }) {
 
     retrieveInformation();
   }, []);
+
+  // Checks if user already has submitted an adoption form
+  useEffect(() => {
+    const checkHasForm = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/api/forms');
+        const data = await response.json();
+        const { id } = await params;
+
+        if (response.ok) {
+          const matchedItem = data.find((form) => {
+            return (form.userEmail === user.email && form.petId === id)
+          });
+
+          if (matchedItem) {
+            setHasForm("Yes");
+          }
+          else {
+            setHasForm("No");
+          }
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    if (user) {
+      checkHasForm();
+    }
+  }, [user])
 
   //On load, retrieve random pets for carousel
   useEffect(() => {
@@ -172,12 +205,32 @@ export default function PetInformation({ params }) {
                     message for further details!
                   </p>
                 ) : null}
-                <button
-                  className="bg-brandWhite text-brandRed font-bold rounded-2xl py-2"
-                  onClick={handleShowForm}
-                >
-                  FILL OUT ADOPTION FORM
-                </button>
+                {user ? (
+                  <>
+                    {
+                      hasForm === 'Yes' &&
+                      <div className="text-center font-semibold text-xl">
+                        Visit Dashboard to view submitted Adoption Form
+                      </div>
+                    }
+                    {
+                      hasForm === 'No' &&
+                      <button
+                        className="bg-brandWhite text-brandRed font-bold rounded-2xl py-2"
+                        onClick={handleShowForm}
+                      >
+                        FILL OUT ADOPTION FORM
+                      </button>
+                    }
+                  </>
+
+                ) : (
+                  <div className="text-center font-semibold text-xl">
+                    Login to fill out an Adoption form
+                  </div>
+                )
+                }
+
               </div>
             </div>
             {/* Carousel section */}

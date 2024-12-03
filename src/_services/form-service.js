@@ -1,5 +1,5 @@
 import { db } from "@/_utils/firebase";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, getDocs, query } from "firebase/firestore";
 
 
 export async function dbAddForm(formObj) {
@@ -9,5 +9,17 @@ export async function dbAddForm(formObj) {
         console.log(newFormPromise.id);
     } catch (error) {
         console.log(error);
+    }
+}
+
+export async function dbGetAllForms() {
+    try {
+        const allFormsReference = collection(db, "forms");
+        const allFormsQuery = query(allFormsReference);
+        const querySnapShot = await getDocs(allFormsQuery);
+        return querySnapShot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+    } catch (error) {
+        console.log(error);
+        return [];
     }
 }

@@ -35,6 +35,7 @@ export default function AdoptionForm({ onClose, petId, petName }) {
     today = mm + '/' + dd + '/' + yyyy;
 
     const formData = {
+      userName: user.displayName,
       userEmail: user.email,
       petId: petId,
       phoneNum: phoneNum,
