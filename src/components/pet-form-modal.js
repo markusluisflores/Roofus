@@ -178,7 +178,7 @@ export default function PetForm({ closeForm, openType, petId, setRefresh }) {
 
     return (
         <div
-            className="absolute z-50 insert-0 h-full w-screen flex justify-center bg-gray-950/70 py-20"
+            className="fixed inset-0 z-50 h-full w-full flex items-center justify-center bg-gray-950/70 py-20"
             onClick={closeForm}
         >
             <div onClick={(event) => event.stopPropagation()}>

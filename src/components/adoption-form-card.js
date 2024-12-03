@@ -3,7 +3,7 @@ import { FaEdit } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
 
-export default function AdoptionFormCard({ form }) {
+export default function AdoptionFormCard({ form, handleEditAdoptionForm, openDelete }) {
 
     const [petInfo, setPetInfo] = useState({});
     const petId = form.petId;
@@ -13,11 +13,17 @@ export default function AdoptionFormCard({ form }) {
             const response = await fetch(`http://localhost:3000/api/pets/${petId}`);
             const data = await response.json();
             setPetInfo(data);
-            console.log("The pet is");
-            console.log(data);
         } catch (error) {
             console.log(error);
         }
+    }
+
+    const editForm = () => {
+        handleEditAdoptionForm(petId, petInfo.name, form.id);
+    }
+
+    const deleteForm = () => {
+        openDelete(form.id, form.userName, form.date, petInfo.name);
     }
 
     useEffect(() => {
@@ -31,14 +37,14 @@ export default function AdoptionFormCard({ form }) {
             <div className="font-semibold text-base flex flex-row">
                 <div>Applicant: {form.userName}</div>
                 <div
-                    onClick={() => { }}
-                    className="ml-auto p-1 mx-1 h-fit w-fit hover:border rounded-sm border-red-300"
+                    onClick={editForm}
+                    className="ml-auto p-1 mx-1 h-fit w-fit cursor-pointer hover:border rounded-sm border-red-300"
                 >
                     <FaEdit size={20} />
                 </div>
                 <div
-                    onClick={() => { }}
-                    className="p-1 mx-1 h-fit w-fit hover:border rounded-sm border-red-300"
+                    onClick={deleteForm}
+                    className="p-1 mx-1 h-fit w-fit cursor-pointer hover:border rounded-sm border-red-300"
                 >
                     <RiDeleteBin6Line size={20} />
                 </div>
