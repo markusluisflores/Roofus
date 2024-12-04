@@ -10,7 +10,7 @@ export default function AdoptionFormCard({ form, handleEditAdoptionForm, openDel
 
     async function getPetInfo() {
         try {
-            const response = await fetch(`http://localhost:3000/api/pets/${petId}`);
+            const response = await fetch(`api/pets/${petId}`);
             const data = await response.json();
             setPetInfo(data);
         } catch (error) {

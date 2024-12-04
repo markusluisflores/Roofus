@@ -15,7 +15,7 @@ export default function DeletePetForm({ closeForm, petId, setRefresh }) {
     async function handleDelete() {
         try {
             let request = new Request(
-                `http://localhost:3000/api/pets/${petId}`,
+                `api/pets/${petId}`,
                 {
                     method: "DELETE"
                 }
@@ -37,7 +37,7 @@ export default function DeletePetForm({ closeForm, petId, setRefresh }) {
 
     async function getPetInfo() {
         try {
-            const response = await fetch(`http://localhost:3000/api/pets/${petId}`);
+            const response = await fetch(`api/pets/${petId}`);
             const data = await response.json();
             console.log(data);
             setName(data.name);

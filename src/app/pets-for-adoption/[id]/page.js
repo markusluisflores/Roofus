@@ -62,7 +62,7 @@ export default function PetInformation({ params }) {
   useEffect(() => {
     const checkHasForm = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/forms');
+        const response = await fetch('api/forms');
         const data = await response.json();
         const { id } = await params;
 

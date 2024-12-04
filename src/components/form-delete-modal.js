@@ -12,7 +12,7 @@ export default function DeleteAdoptionForm({ closeForm, formInfo, setRefresh }) 
     async function handleDelete() {
         try {
             let request = new Request(
-                `http://localhost:3000/api/forms/${formInfo.formId}`,
+                `api/forms/${formInfo.formId}`,
                 {
                     method: "DELETE"
                 }

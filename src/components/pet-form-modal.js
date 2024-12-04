@@ -87,7 +87,7 @@ export default function PetForm({ closeForm, openType, petId, setRefresh }) {
                 img: petUrl
             }
             let request = new Request(
-                "http://localhost:3000/api/pets",
+                "api/pets",
                 {
                     method: "POST",
                     body: JSON.stringify(newDogObj)
@@ -128,7 +128,7 @@ export default function PetForm({ closeForm, openType, petId, setRefresh }) {
                 img: petUrl
             }
             let request = new Request(
-                `http://localhost:3000/api/pets/${petId}`,
+                `api/pets/${petId}`,
                 {
                     method: "PUT",
                     body: JSON.stringify(editedDogObj)
@@ -151,7 +151,7 @@ export default function PetForm({ closeForm, openType, petId, setRefresh }) {
 
     async function getPetInfo() {
         try {
-            const response = await fetch(`http://localhost:3000/api/pets/${petId}`);
+            const response = await fetch(`api/pets/${petId}`);
             const data = await response.json();
             console.log(data);
             setName(data.name);
