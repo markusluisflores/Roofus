@@ -31,7 +31,7 @@ export default function AdoptionFormCard({ form, handleEditAdoptionForm, openDel
     }, []);
 
     return (
-        <div className="text-gray-900 shadow-xl rounded-md p-4 w-80">
+        <div className="text-gray-900 shadow-xl rounded-md p-4 w-96">
             <div className="font-semibold text-base flex flex-row">
                 <div>Applicant: {form.userName}</div>
                 <div
