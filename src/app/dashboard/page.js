@@ -10,9 +10,14 @@ import DeletePetForm from "@/components/pet-delete-modal";
 import AdoptionFormCard from "@/components/adoption-form-card";
 import AdoptionForm from "@/components/form-modal";
 import DeleteAdoptionForm from "@/components/form-delete-modal";
+import { Roboto } from "next/font/google";
+
+const roboto = Roboto({
+  weight: ["100", "300", "400", "500", "700", "900"],
+  subsets: ["latin"],
+});
 
 export default function Dashboard() {
-
   const { user } = useUserAuth();
   const [adoptionForms, setAdoptionForms] = useState([]);
   const [editAdoptionForm, setEditAdoptionForm] = useState(false);
@@ -34,13 +39,13 @@ export default function Dashboard() {
     setOpenType(openTypeParam);
     setCurrentPetId(petId);
     setShowForm(true);
-  }
+  };
   const closeForm = () => setShowForm(false);
 
   const openDeleteForm = (petId) => {
     setCurrentPetId(petId);
     setShowDelete(true);
-  }
+  };
   const closeDeleteForm = () => setShowDelete(false);
 
   const openDeleteAdoption = (formId, displayName, dateSubmitted, petName) => {
@@ -115,7 +120,7 @@ export default function Dashboard() {
   return (
     <main>
       <NavBar currentPage="Dashboard" />
-      <div className="relative bg-cover bg-center min-h-screen">
+      <div className="flex flex-col flex-1 justify-center w-screen items-center">
         {user ? (
           <>
             {
@@ -149,15 +154,22 @@ export default function Dashboard() {
                       setRefresh={setRefresh}
                     />
                   }
-                  {
-                    showDelete &&
-                    <DeletePetForm
-                      closeForm={closeDeleteForm}
-                      petId={currentPetId}
-                      setRefresh={setRefresh}
-                    />
-                  }
-                  <div className="flex flex-wrap gap-8 px-8 pt-28">
+                  {showDelete && (
+                    <div className="fixed inset-0 z-50 h-full w-full flex items-center justify-center bg-gray-950/70">
+                      <DeletePetForm
+                        closeForm={closeDeleteForm}
+                        petId={currentPetId}
+                        setRefresh={setRefresh}
+                      />
+                    </div>
+                  )}
+                <div className="relative bg-cover bg-center px-2">
+                  <h2
+                    className={`${roboto.className} text-gray-800 text-3xl self-start text-center md:text-left max-w-[1200px] font-bold pt-8 pb-4 underline underline-offset-4`}
+                  >
+                    Edit Data
+                  </h2>
+                  <div className="flex flex-1 flex-wrap justify-center md:justify-normal w-full max-w-[1496px] gap-4 pt-4">
                     <DashboardCard
                       title="Add Pet"
                       icon="/assets/dashboard/plus.png"
@@ -174,38 +186,55 @@ export default function Dashboard() {
                       />
                     ))}
                   </div>
-                </>
-              )
-            }
-            <div className="relative bg-cover bg-center px-8 py-16">
-              <h2 className="text-2xl font-bold mt-8 text-black">
-                Submitted Adoption Forms
-              </h2>
-              <div className="text-black mt-4 flex flex-row flex-wrap">
-                {adoptionForms.length > 0 ? (
-                  adoptionForms.map((form) => (
-                    <AdoptionFormCard
-                      key={form.id}
-                      form={form}
-                      handleEditAdoptionForm={handleEditAdoptionForm}
-                      openDelete={openDeleteAdoption}
-                    />
-                  ))
-                ) : (
-                  <p>No forms submitted yet.</p>
-                )}
+                </div>
+                <div className="relative bg-cover bg-center px-2 py-8 max-h-[540px]">
+                  <h2
+                    className={`${roboto.className} text-gray-800 text-3xl self-start text-center md:text-left max-w-[1200px] font-bold pt-8 pb-8 underline underline-offset-4`}
+                  >
+                    Submitted Adoption Forms
+                  </h2>
+                  <div className="flex flex-1 flex-wrap justify-center md:justify-normal w-full max-w-[1496px] gap-4 pt-4 pb-8">
+                    {adoptionForms.length > 0 ? (
+                      adoptionForms.map((form) => (
+                        <AdoptionFormCard key={form.id} form={form} />
+                      ))
+                    ) : (
+                      <p>No forms submitted yet.</p>
+                    )}
+                  </div>
+                </div>
+              </>
+            ) : (
+              <>
+                {/* client dashboard */}
+                <div className="relative bg-cover bg-center px-8 py-16">
+                  <h2 className="text-2xl font-bold mt-8 text-black">
+                    Your Adoption Forms
+                  </h2>
+                  <div className="text-black mt-4">
+                    {adoptionForms.length > 0 ? (
+                      adoptionForms.map((form) => (
+                        <div key={form.id} className="border-b py-2">
+                          <p>
+                            {form.name} - {form.status}
+                          </p>
+                        </div>
+                      ))
+                    ) : (
+                      <p>You haven't submitted any adoption forms yet.</p>
+                    )}
+                  </div>
+                </div>
               </div>
+            </>
+          ) : (
+            <div className="relative bg-cover bg-center px-8 py-16">
+              <h2 className="text-2xl text-center font-bold mt-8 text-black">
+                Please Login to access Dashboard
+              </h2>
             </div>
-          </>
-        ) : (
-          <div className="relative bg-cover bg-center px-8 py-16">
-            <h2 className="text-2xl text-center font-bold mt-8 text-black">
-              Please Login to access Dashboard
-            </h2>
-          </div>
-
-        )}
-      </div>
-    </main >
+          )}
+        </div>
+      </main >
   );
 }
