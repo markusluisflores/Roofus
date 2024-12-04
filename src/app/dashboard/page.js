@@ -154,87 +154,71 @@ export default function Dashboard() {
                       setRefresh={setRefresh}
                     />
                   }
-                  {showDelete && (
-                    <div className="fixed inset-0 z-50 h-full w-full flex items-center justify-center bg-gray-950/70">
-                      <DeletePetForm
-                        closeForm={closeDeleteForm}
-                        petId={currentPetId}
-                        setRefresh={setRefresh}
-                      />
-                    </div>
-                  )}
-                <div className="relative bg-cover bg-center px-2">
-                  <h2
-                    className={`${roboto.className} text-gray-800 text-3xl self-start text-center md:text-left max-w-[1200px] font-bold pt-8 pb-4 underline underline-offset-4`}
-                  >
-                    Edit Data
-                  </h2>
-                  <div className="flex flex-1 flex-wrap justify-center md:justify-normal w-full max-w-[1496px] gap-4 pt-4">
-                    <DashboardCard
-                      title="Add Pet"
-                      icon="/assets/dashboard/plus.png"
-                      openForm={openForm}
+                  {
+                    showDelete &&
+                    <DeletePetForm
+                      closeForm={closeDeleteForm}
+                      petId={currentPetId}
+                      setRefresh={setRefresh}
                     />
-                    {petList.map((pet) => (
-                      <DashboardPetCard
-                        key={pet.id}
-                        name={pet.name}
-                        petId={pet.id}
-                        photo={pet.img}
+                  }
+                  <div className="relative bg-cover bg-center px-2">
+                    <h2
+                      className={`${roboto.className} text-gray-800 text-3xl self-start text-center md:text-left max-w-[1200px] font-bold pt-8 pb-4 underline underline-offset-4`}
+                    >
+                      Edit Data
+                    </h2>
+                    <div className="flex flex-1 flex-wrap justify-center md:justify-normal w-full max-w-[1496px] gap-4 pt-4">
+                      <DashboardCard
+                        title="Add Pet"
+                        icon="/assets/dashboard/plus.png"
                         openForm={openForm}
-                        openDeleteForm={openDeleteForm}
                       />
-                    ))}
+                      {petList.map((pet) => (
+                        <DashboardPetCard
+                          key={pet.id}
+                          name={pet.name}
+                          petId={pet.id}
+                          photo={pet.img}
+                          openForm={openForm}
+                          openDeleteForm={openDeleteForm}
+                        />
+                      ))}
+                    </div>
                   </div>
-                </div>
-                <div className="relative bg-cover bg-center px-2 py-8 max-h-[540px]">
-                  <h2
-                    className={`${roboto.className} text-gray-800 text-3xl self-start text-center md:text-left max-w-[1200px] font-bold pt-8 pb-8 underline underline-offset-4`}
-                  >
-                    Submitted Adoption Forms
-                  </h2>
-                  <div className="flex flex-1 flex-wrap justify-center md:justify-normal w-full max-w-[1496px] gap-4 pt-4 pb-8">
-                    {adoptionForms.length > 0 ? (
-                      adoptionForms.map((form) => (
-                        <AdoptionFormCard key={form.id} form={form} />
-                      ))
-                    ) : (
-                      <p>No forms submitted yet.</p>
-                    )}
-                  </div>
-                </div>
-              </>
-            ) : (
-              <>
-                {/* client dashboard */}
-                <div className="relative bg-cover bg-center px-8 py-16">
-                  <h2 className="text-2xl font-bold mt-8 text-black">
-                    Your Adoption Forms
-                  </h2>
-                  <div className="text-black mt-4">
-                    {adoptionForms.length > 0 ? (
-                      adoptionForms.map((form) => (
-                        <div key={form.id} className="border-b py-2">
-                          <p>
-                            {form.name} - {form.status}
-                          </p>
-                        </div>
-                      ))
-                    ) : (
-                      <p>You haven't submitted any adoption forms yet.</p>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </>
-          ) : (
-            <div className="relative bg-cover bg-center px-8 py-16">
-              <h2 className="text-2xl text-center font-bold mt-8 text-black">
-                Please Login to access Dashboard
+                </>
+              )
+            }
+            <div className="relative bg-cover bg-center px-2 py-8 max-h-[540px]">
+              <h2
+                className={`${roboto.className} text-gray-800 text-3xl self-start text-center md:text-left max-w-[1200px] font-bold pt-8 pb-8 underline underline-offset-4`}
+              >
+                Submitted Adoption Forms
               </h2>
+              <div className="flex flex-1 flex-wrap justify-center md:justify-normal w-full max-w-[1496px] gap-4 pt-4 pb-8">
+                {adoptionForms.length > 0 ? (
+                  adoptionForms.map((form) => (
+                    <AdoptionFormCard
+                      key={form.id}
+                      form={form}
+                      handleEditAdoptionForm={handleEditAdoptionForm}
+                      openDelete={openDeleteAdoption}
+                    />
+                  ))
+                ) : (
+                  <p>No forms submitted yet.</p>
+                )}
+              </div>
             </div>
-          )}
-        </div>
-      </main >
+          </>
+        ) : (
+          <div className="relative bg-cover bg-center px-8 py-16">
+            <h2 className="text-2xl text-center font-bold mt-8 text-black">
+              Please Login to access Dashboard
+            </h2>
+          </div>
+        )}
+      </div>
+    </main >
   );
 }
