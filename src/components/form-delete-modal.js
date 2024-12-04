@@ -7,15 +7,12 @@ const roboto = Roboto({
     subsets: ["latin"],
 });
 
-export default function DeletePetForm({ closeForm, petId, setRefresh }) {
-
-    const [name, setName] = useState("");
-    const [petImg, setPetImg] = useState("");
+export default function DeleteAdoptionForm({ closeForm, formInfo, setRefresh }) {
 
     async function handleDelete() {
         try {
             let request = new Request(
-                `http://localhost:3000/api/pets/${petId}`,
+                `http://localhost:3000/api/forms/${formInfo.formId}`,
                 {
                     method: "DELETE"
                 }
@@ -35,22 +32,6 @@ export default function DeletePetForm({ closeForm, petId, setRefresh }) {
         }
     }
 
-    async function getPetInfo() {
-        try {
-            const response = await fetch(`http://localhost:3000/api/pets/${petId}`);
-            const data = await response.json();
-            console.log(data);
-            setName(data.name);
-            setPetImg(data.img);
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-    useEffect(() => {
-        getPetInfo();
-    }, []);
-
     return (
         <div
             className="fixed inset-0 z-50 h-full w-full flex items-center justify-center bg-gray-950/70 py-20"
@@ -61,27 +42,17 @@ export default function DeletePetForm({ closeForm, petId, setRefresh }) {
                     className={`${roboto.className} max-w-4xl mx-auto p-6 top-20 bg-white rounded-lg`}
                 >
                     <h1 className="text-2xl text-black font-bold text-center mb-8">
-                        Delete Pet
+                        Delete Form
                     </h1>
-                    <div className="mb-2 w-full flex justify-center">
-                        {
-                            petImg != '' &&
-                            (
-                                <Image
-                                    src={petImg}
-                                    alt="Pet photo"
-                                    width={200}
-                                    height={200}
-                                    className="h-52 w-72"
-                                />
-                            )
-                        }
 
-                    </div>
-                    <div className="mb-6">
-                        <div className="block text-black text-lg font-medium mb-2">
-                            Are you sure you want to delete {name}? &#128532;
+                    <div className="mb-6 text-black">
+                        <div className="block text-lg font-medium mb-2">
+                            Are you sure you want to delete the following Adoption Form? &#129402;
                         </div>
+                        <p>Applicant: {formInfo.displayName}</p>
+                        <p>Pet Name: {formInfo.petName}</p>
+                        <p>Date Submitted: {formInfo.dateSubmitted}</p>
+
                     </div>
 
                     <div className="flex justify-center gap-8">

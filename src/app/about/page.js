@@ -29,9 +29,9 @@ export default function About() {
                   active and expand upon it for potential future use.
                 </p>
                 <p className="mt-5">
-                  The name "Roofus" is a heartfelt tribute to Renee's beloved
-                  cat, Rufus, who recently passed away. It also reflects our
-                  mission to help put a "roof" over the heads of pets in need.
+                  The name &quot;Roofus&quot; is a heartfelt tribute to Renee&apos;s beloved cat,
+                  Rufus, who recently passed away. It also reflects our mission to
+                  help put a &quot;roof&quot; over the heads of pets in need.
                 </p>
               </div>
             </div>
@@ -71,18 +71,18 @@ export default function About() {
                 <p className="mb-5">
                   For nearly 18 years, Rufus lived a long, fulfilling, and
                   adventurous life with his family. He was adopted in Florida,
-                  where he became a member of the neighborhood cat gang and
-                  would often host gatherings for them in the backyard. He
-                  enjoyed bringing "gifts" to his owners, including dead
-                  lizards, bugs, and even a live squirrel that he once brought
-                  into the house. Him and his family lived in Florida for
-                  several years before making the long journey to Canada, where
-                  they settled down for good.
+                  where he became a member of the neighborhood cat gang and would
+                  often host gatherings for them in the backyard. He enjoyed
+                  bringing &quot;gifts&quot; to his owners, including dead lizards, bugs,
+                  and even a live squirrel that he once brought into the house.
+                  Him and his family lived in Florida for several years before
+                  making the long journey to Canada, where they settled down for
+                  good.
                 </p>
                 <p className="mb-5">
                   Rufus was a very affectionate cat who loved being close to his
                   owners, especially as he grew older. He could often be found
-                  curled up on someone's lap or sharing a pillow with them at
+                  curled up on someone&apos;s lap or sharing a pillow with them at
                   night. He was content simply to be included — when Renee was a
                   child, Rufus would even let her put a bonnet on his head and
                   push him around in a stroller. A true foodie, Rufus had a
@@ -92,16 +92,15 @@ export default function About() {
                   during tough times.
                 </p>
                 <p className="mb-5">
-                  Some of Rufus's favorite activities included lounging by the
+                  Some of Rufus&apos;s favorite activities included lounging by the
                   fireplace, watching movies with Renee on her laptop, and
-                  traveling between all the food bowls to get a taste of
-                  everyone else's dinner. He loved to give affectionate
-                  headbutts to those around him, and occasionally would groom
-                  their hair.
+                  traveling between all the food bowls to get a taste of everyone
+                  else&apos;s dinner. He loved to give affectionate headbutts to those
+                  around him, and occasionally would groom their hair.
                 </p>
                 <p className="mb-5">
-                  Rufus was a very deeply loved cat who is greatly missed and
-                  will always hold a special place in his family's hearts.
+                  Rufus was a very deeply loved cat who is greatly missed and will
+                  always hold a special place in his family&apos;s hearts.
                 </p>
                 <p className="mb-5">In Loving Memory</p>
                 <p className="mb-5 mr-5">2007 - 2024 ♡</p>
@@ -121,19 +120,18 @@ export default function About() {
                   begging from Renee and her brother Sam to their parents. As a
                   puppy, she quickly earned a reputation for chewing things such
                   as sandals, toilet paper, and even a pair of reading glasses.
-                  She spent her early years in their Florida home before moving
-                  to Canada with her family.
+                  She spent her early years in their Florida home before moving to
+                  Canada with her family.
                 </p>
                 <p className="mb-5 mr-5">
-                  Despite her small stature and adorable face, Brownie is
-                  fiercely protective of her family and is fully convinced that
-                  she's a fearsome guard dog. Her family often jokes that she
-                  resembles the Lorax, Frank Gallagher, or even her owner Peter.
-                  Known as the diva of the household, Brownie often refuses to
-                  eat her own food, preffering to hold out for the "good stuff"
-                  like chicken, cheese, sweet potato, or spaghetti. Stubborn as
-                  she can be, she loves her family deeply and is unwaveringly
-                  loyal.
+                  Despite her small stature and adorable face, Brownie is fiercely
+                  protective of her family and is fully convinced that she&apos;s a
+                  fearsome guard dog. Her family often jokes that she resembles
+                  the Lorax, Frank Gallagher, or even her owner Peter. Known as
+                  the diva of the household, Brownie often refuses to eat her own
+                  food, preferring to hold out for the &quot;good stuff&quot; like chicken,
+                  cheese, sweet potato, or spaghetti. Stubborn as she can be, she
+                  loves her family deeply and is unwaveringly loyal.
                 </p>
                 <p className="mb-5 mr-5">
                   Brownie is also a cancer survivor, having recently undergone a
@@ -168,36 +166,34 @@ export default function About() {
               </h2>
               <div className={`${roboto.className} text-lg text-black px-4`}>
                 <p className="mb-5">
-                  The newest addition to the family, Sooty, was brought home
-                  from Edmonton as a very young kitten, only being a month old
-                  at the time. Raised during the pandemic, he developed an
-                  obsessive attachment to his owner, Renee. As a kitten, Sooty
-                  was mischievous and energetic, often causing chaos and
-                  playfully messing with the other animals in the household.
+                  The newest addition to the family, Sooty, was brought home from
+                  Edmonton as a very young kitten, only being a month old at the
+                  time. Raised during the pandemic, he developed an obsessive
+                  attachment to his owner, Renee. As a kitten, Sooty was
+                  mischievous and energetic, often causing chaos and playfully
+                  messing with the other animals in the household.
                 </p>
                 <p className="mb-5 mr-5">
-                  Weighing in a whopping 22 pounds, Sooty is affectionately
-                  teased by his family for his round figure and his pointy
-                  fangs, which give him a bat-like appearance. He displays many
-                  unusual, almost human-like or dog-like behaviors, such as
-                  petting humans back when they pet him or playing fetch with
-                  his favorite pom-pom. Renee often refers to Sooty as her
-                  "child" because he follows her everywhere and sleeps in the
-                  crook of her arm every night, sometimes even tucked under the
-                  covers like a baby.
+                  Weighing in a whopping 22 pounds, Sooty is affectionately teased
+                  by his family for his round figure and his pointy fangs, which
+                  give him a bat-like appearance. He displays many unusual, almost
+                  human-like or dog-like behaviors, such as petting humans back
+                  when they pet him or playing fetch with his favorite pom-pom.
+                  Renee often refers to Sooty as her &quot;child&quot; because he follows
+                  her everywhere and sleeps in the crook of her arm every night,
+                  sometimes even tucked under the covers like a baby.
                 </p>
                 <p className="mb-5 mr-5">
                   In his free time, Sooty enjoys eating plants, carrying his
                   pom-pom around, and birdwatching from the window. He has a
                   fascination with bags and cardboard boxes and loves car rides,
-                  where he sits in a "car seat" (which is actually just a
+                  where he sits in a &quot;car seat&quot; (which is actually just a
                   cardboard box). Sooty has a special fondness for Christmas,
                   especially the tree, which he takes great pleasure in knocking
-                  ornaments off of. He also has a particular set of drink
-                  coasters and a suitcase handle that he loves to lick, though
-                  no one has figured out why. His unique personality and odd
-                  habits are part of many reasons why he is so loved by his
-                  family.
+                  ornaments off of. He also has a particular set of drink coasters
+                  and a suitcase handle that he loves to lick, though no one has
+                  figured out why. His unique personality and odd habits are part
+                  of many reasons why he is so loved by his family.
                 </p>
               </div>
             </div>
@@ -215,18 +211,18 @@ export default function About() {
                 <p className="mb-5 mr-5">
                   Yuna is a golden retriever with a story as warm as her
                   personality. Born in the Philippines, she moved to Calgary at
-                  five years old and has embraced her new home with boundless
-                  joy. She’s a foodie at heart, with a soft spot for peanut
-                  butter, yogurt, and pup cups from coffee shops.
+                  five years old and has embraced her new home with boundless joy.
+                  She&apos;s a foodie at heart, with a soft spot for peanut butter,
+                  yogurt, and pup cups from coffee shops.
                 </p>
                 <p className="mb-5 mr-5">
-                  Whether she’s chasing a ball, swimming in the river, rolling
-                  in the grass, or playing in the snow (and sneaking a bite of
-                  it), Yuna lives life with contagious enthusiasm. True to her
-                  breed, she’s endlessly affectionate and loves nothing more
-                  than cuddling with her favorite humans. While she’s every bit
-                  the playful and loving golden retriever, Yuna’s extra-special
-                  charm and wholehearted love make her one of a kind.
+                  Whether she&apos;s chasing a ball, swimming in the river, rolling in
+                  the grass, or playing in the snow (and sneaking a bite of it),
+                  Yuna lives life with contagious enthusiasm. True to her breed,
+                  she&apos;s endlessly affectionate and loves nothing more than
+                  cuddling with her favorite humans. While she&apos;s every bit the
+                  playful and loving golden retriever, Yuna&apos;s extra-special charm
+                  and wholehearted love make her one of a kind.
                 </p>
               </div>
             </div>
@@ -257,12 +253,12 @@ export default function About() {
                 <p className="mb-5">
                   Maxi is a playful Shih Tzu and is the cutest member of the
                   Flores family. She spends her day playing with her ball and
-                  giving dirty looks to stray cats. She's everyone's favorite
-                  pet and constantly grabs the attention of visitors. Everyone
-                  in the neighborhood knows Maxi and all the other dogs' heads
-                  turn when she passes by (she's like the equivalent of a
-                  popular high school cheerleader to them). Don't even bother to
-                  try to take Maxi's ball or you will suffer her wrath!
+                  giving dirty looks to stray cats. She&apos;s everyone&apos;s favorite pet
+                  and constantly grabs the attention of visitors. Everyone in the
+                  neighborhood knows Maxi and all the other dogs&apos; heads turn when
+                  she passes by (she&apos;s like the equivalent of a popular high
+                  school cheerleader to them). Don&apos;t even bother to try to take
+                  Maxi&apos;s ball or you will suffer her wrath!
                 </p>
               </div>
             </div>
