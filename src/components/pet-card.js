@@ -15,7 +15,7 @@ export default function PetCard(props) {
   return (
     <Link
       href={url}
-      className="bg-brandWhite rounded-xl shadow-md mb-2 p-4 flex-shrink-0 w-full max-w-[540px]"
+      className="bg-brandWhite rounded-xl shadow-md mb-2 p-4 flex-shrink-0 w-full max-w-[480px]"
     >
       <div className="sm:flex gap-x-4">
         <div className="flex-1 w-md:shrink-0">

@@ -13,8 +13,8 @@ export default function DashboardCard({ title, icon, openForm }) {
   }
 
   return (
-    <div onClick={openAddForm} className="cursor-pointer flex flex-col shadow-xl border-brandRed border bg-gray-100 p-5 rounded-lg hover:shadow-2xl transition text-black">
-      <div className="flex justify-center w-[200px] h-[200px] bg-gray-100 rounded-lg ">
+    <div onClick={openAddForm} className="cursor-pointer flex flex-col shadow-xl bg-brandWhite p-4 rounded-lg hover:shadow-2xl transition text-black">
+      <div className="flex justify-center w-[160px] h-[144px] bg-brandWhite rounded-lg ">
         <div className="flex items-center justify-center text-brandRed text-8xl ">
           <Image
             src={icon}
