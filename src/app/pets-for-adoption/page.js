@@ -77,11 +77,11 @@ export default function PetsForAdoption() {
         <div className="flex flex-1 w-screen justify-center">
           <div className="flex flex-col w-5/6 justify-center align-middle">
             <p
-              className={`${roboto.className} text-gray-800 text-4xl font-bold mt-12 underline underline-offset-4`}
+              className={`${roboto.className} text-gray-800 text-3xl text-center md:text-left font-bold mt-8 underline underline-offset-4`}
             >
               Our Furry Friends
             </p>
-            <div className="flex flex-wrap w-screen self-center justify-center mt-8">
+            <div className="flex flex-wrap self-center justify-center mt-8">
               <div className="mb-4 align-middle">
                 <label
                   className={`${roboto.className} text-2xl mr-4 w-40 text-black`}
@@ -97,7 +97,7 @@ export default function PetsForAdoption() {
                   <option value="cat">Cats</option>
                 </select>
               </div>
-              <div className="flex flex-wrap justify-center w-full gap-x-6 gap-y-6 pb-16 px-10">
+              <div className="flex flex-wrap justify-center md:justify-normal w-full gap-x-4 gap-y-4 pb-12 px-2">
                 {petCards}
               </div>
             </div>

@@ -99,7 +99,7 @@ export default function Home() {
           <hr className="border-black" />
           <section className="bg-brandWhite">
             <h2
-              className={`${roboto.className} text-4xl text-gray-800 font-bold mb-8 underline underline-offset-4`}
+              className={`${roboto.className} text-3xl text-gray-800 text-center md:text-left font-bold mb-8 underline underline-offset-4`}
             >
               Featured Pets
             </h2>
@@ -110,7 +110,7 @@ export default function Home() {
 
           <section className="bg-brandWhite pb-12">
             <h2
-              className={`${roboto.className} text-4xl text-gray-800 font-bold mb-8 underline underline-offset-4`}
+              className={`${roboto.className} text-3xl text-gray-800 text-center md:text-left font-bold mb-8 underline underline-offset-4`}
             >
               Adoption Stories
             </h2>
