@@ -11,7 +11,7 @@ export default function About() {
   return (
     <main>
       <NavBar currentPage="About" />
-      <div className="pt-8 px-10">
+      <div className="pt-28 px-20">
         <div className="bg-brandWhite mb-8 p-6 flex flex-wrap">
           <div className="w-full md:w-1/2 pr-4">
             <h2
@@ -19,7 +19,7 @@ export default function About() {
             >
               About Us
             </h2>
-            <div className={`${roboto.className} text-lg text-black`}>
+            <div className={`${roboto.className} text-lg text-black pr-8`}>
               <p>
                 Roofus was created to connect pets seeking a loving home with
                 their future families. While this is currently a mock website
@@ -28,9 +28,9 @@ export default function About() {
                 active and expand upon it for potential future use.
               </p>
               <p className="mt-5">
-                The name "Roofus" is a heartfelt tribute to Renee's beloved cat,
+                The name &quot;Roofus&quot; is a heartfelt tribute to Renee&apos;s beloved cat,
                 Rufus, who recently passed away. It also reflects our mission to
-                help put a "roof" over the heads of pets in need.
+                help put a &quot;roof&quot; over the heads of pets in need.
               </p>
             </div>
           </div>
@@ -42,8 +42,8 @@ export default function About() {
               className="w-full h-full rounded object-scale-down"
             />
           </div>
-          <hr className="w-full h-1 border-gray-500 mb-2 mt-14" />
-          <div className="pt-12">
+          <hr className="w-full h-1 border-gray-500 mb-2 mt-20" />
+          <div className="pt-20">
             <h2 className={`${roboto.className} text-3xl font-bold text-gray-800 underline underline-offset-4`}>
               Meet Our Pets
             </h2>
@@ -51,14 +51,14 @@ export default function About() {
         </div>
 
         <div className="bg-brandWhite rounded-xl shadow-lg mb-8 px-6 pb-6 flex flex-wrap">
-          <div className="md:w-1/2 order-1 md:order-1 mb-5">
+          <div className="md:w-1/2 order-2 md:order-1">
             <img
               src="/assets/about/rufus.png"
               alt="Rufus the Cat"
-              className="w-full min-h-[360px] max-h-[700px] object-cover rounded"
+              className="w-full  h-[700px] object-cover rounded"
             />
           </div>
-          <div className="w-full md:w-1/2 pl-4 order-2 md:order-2">
+          <div className="w-full md:w-1/2 pl-4 order-1 md:order-2">
             <h2
               className={`${roboto.className} text-2xl font-bold text-black mb-4 px-4`}
             >
@@ -70,7 +70,7 @@ export default function About() {
                 adventurous life with his family. He was adopted in Florida,
                 where he became a member of the neighborhood cat gang and would
                 often host gatherings for them in the backyard. He enjoyed
-                bringing "gifts" to his owners, including dead lizards, bugs,
+                bringing &quot;gifts&quot; to his owners, including dead lizards, bugs,
                 and even a live squirrel that he once brought into the house.
                 Him and his family lived in Florida for several years before
                 making the long journey to Canada, where they settled down for
@@ -79,7 +79,7 @@ export default function About() {
               <p className="mb-5">
                 Rufus was a very affectionate cat who loved being close to his
                 owners, especially as he grew older. He could often be found
-                curled up on someone's lap or sharing a pillow with them at
+                curled up on someone&apos;s lap or sharing a pillow with them at
                 night. He was content simply to be included — when Renee was a
                 child, Rufus would even let her put a bonnet on his head and
                 push him around in a stroller. A true foodie, Rufus had a
@@ -89,15 +89,15 @@ export default function About() {
                 during tough times.
               </p>
               <p className="mb-5">
-                Some of Rufus's favorite activities included lounging by the
+                Some of Rufus&apos;s favorite activities included lounging by the
                 fireplace, watching movies with Renee on her laptop, and
                 traveling between all the food bowls to get a taste of everyone
-                else's dinner. He loved to give affectionate headbutts to those
+                else&apos;s dinner. He loved to give affectionate headbutts to those
                 around him, and occasionally would groom their hair.
               </p>
               <p className="mb-5">
                 Rufus was a very deeply loved cat who is greatly missed and will
-                always hold a special place in his family's hearts.
+                always hold a special place in his family&apos;s hearts.
               </p>
               <p className="mb-5">In Loving Memory</p>
               <p className="mb-5 mr-5">2007 - 2024 ♡</p>
@@ -105,7 +105,7 @@ export default function About() {
           </div>
         </div>
         <div className="bg-brandWhite rounded-xl shadow-lg mb-8 p-6 flex flex-wrap">
-          <div className="w-full md:w-1/2 pl-4 order-2 md:order-1">
+          <div className="w-full md:w-1/2 pl-4 order-1 md:order-2">
             <h2
               className={`${roboto.className} text-2xl font-bold text-black mb-4 px-4`}
             >
@@ -122,11 +122,11 @@ export default function About() {
               </p>
               <p className="mb-5 mr-5">
                 Despite her small stature and adorable face, Brownie is fiercely
-                protective of her family and is fully convinced that she's a
+                protective of her family and is fully convinced that she&apos;s a
                 fearsome guard dog. Her family often jokes that she resembles
                 the Lorax, Frank Gallagher, or even her owner Peter. Known as
                 the diva of the household, Brownie often refuses to eat her own
-                food, preffering to hold out for the "good stuff" like chicken,
+                food, preferring to hold out for the &quot;good stuff&quot; like chicken,
                 cheese, sweet potato, or spaghetti. Stubborn as she can be, she
                 loves her family deeply and is unwaveringly loyal.
               </p>
@@ -139,20 +139,20 @@ export default function About() {
               </p>
             </div>
           </div>
-          <div className="w-full md:w-1/2 order-1 md:order-2 mb-5">
+          <div className="w-full md:w-1/2 order-2 md:order-3">
             <img
               src="/assets/about/brownie.png"
               alt="Brownie the Dog"
-              className="w-full min-h-[360px] max-h-[700px] object-cover rounded"
+              className="w-full object-cover rounded h-[700px]"
             />
           </div>
         </div>
         <div className="bg-brandWhite rounded-xl shadow-lg mb-8 p-6 flex flex-wrap">
-          <div className="w-full md:w-1/2 order-1 md:order-2 mb-5">
+          <div className="w-full md:w-1/2 order-2 md:order-1">
             <img
               src="/assets/about/sooty.png"
               alt="Sooty the Cat"
-              className="w-full min-h-[360px] max-h-[700px] object-cover rounded"
+              className="w-full  h-[700px] object-cover rounded"
             />
           </div>
           <div className="w-full md:w-1/2 pl-4 order-1 md:order-2">
@@ -176,7 +176,7 @@ export default function About() {
                 give him a bat-like appearance. He displays many unusual, almost
                 human-like or dog-like behaviors, such as petting humans back
                 when they pet him or playing fetch with his favorite pom-pom.
-                Renee often refers to Sooty as her "child" because he follows
+                Renee often refers to Sooty as her &quot;child&quot; because he follows
                 her everywhere and sleeps in the crook of her arm every night,
                 sometimes even tucked under the covers like a baby.
               </p>
@@ -184,7 +184,7 @@ export default function About() {
                 In his free time, Sooty enjoys eating plants, carrying his
                 pom-pom around, and birdwatching from the window. He has a
                 fascination with bags and cardboard boxes and loves car rides,
-                where he sits in a "car seat" (which is actually just a
+                where he sits in a &quot;car seat&quot; (which is actually just a
                 cardboard box). Sooty has a special fondness for Christmas,
                 especially the tree, which he takes great pleasure in knocking
                 ornaments off of. He also has a particular set of drink coasters
@@ -198,7 +198,7 @@ export default function About() {
 
         {/* Place your pets here Markus and Raymond*/}
         <div className="bg-brandWhite rounded-xl shadow-lg mb-8 p-6 flex flex-wrap">
-          <div className="w-full md:w-1/2 pl-4 order-2 md:order-1">
+          <div className="w-full md:w-1/2 pl-4 order-1 md:order-2">
             <h2
               className={`${roboto.className} text-2xl font-bold text-black mb-4 px-4`}
             >
@@ -209,35 +209,35 @@ export default function About() {
                 Yuna is a golden retriever with a story as warm as her
                 personality. Born in the Philippines, she moved to Calgary at
                 five years old and has embraced her new home with boundless joy.
-                She’s a foodie at heart, with a soft spot for peanut butter,
+                She&apos;s a foodie at heart, with a soft spot for peanut butter,
                 yogurt, and pup cups from coffee shops.
               </p>
               <p className="mb-5 mr-5">
-                Whether she’s chasing a ball, swimming in the river, rolling in
+                Whether she&apos;s chasing a ball, swimming in the river, rolling in
                 the grass, or playing in the snow (and sneaking a bite of it),
                 Yuna lives life with contagious enthusiasm. True to her breed,
-                she’s endlessly affectionate and loves nothing more than
-                cuddling with her favorite humans. While she’s every bit the
-                playful and loving golden retriever, Yuna’s extra-special charm
+                she&apos;s endlessly affectionate and loves nothing more than
+                cuddling with her favorite humans. While she&apos;s every bit the
+                playful and loving golden retriever, Yuna&apos;s extra-special charm
                 and wholehearted love make her one of a kind.
               </p>
             </div>
           </div>
-          <div className="w-full md:w-1/2 order-1 md:order-2 mb-5">
+          <div className="w-full md:w-1/2 order-2 md:order-3">
             <img
               src="/assets/about/yuna.jpg"
               alt="Yuna the Dog"
-              className="w-full min-h-[360px] max-h-[700px] object-cover rounded"
+              className="w-full object-cover rounded h-[700px]"
             />
           </div>
         </div>
 
         <div className="bg-brandWhite rounded-xl shadow-lg mb-8 p-6 flex flex-wrap">
-          <div className="w-full md:w-1/2 order-1 md:order-2 mb-5">
+          <div className="w-full md:w-1/2 order-2 md:order-1">
             <img
               src="/assets/about/maxi.jpg"
-              alt=""
-              className="w-full min-h-[360px] max-h-[700px] object-cover rounded"
+              alt="Maxi the Dog"
+              className="w-full  h-[700px] object-cover rounded"
             />
           </div>
           <div className="w-full md:w-1/2 pl-4 order-1 md:order-2">
@@ -250,12 +250,12 @@ export default function About() {
               <p className="mb-5">
                 Maxi is a playful Shih Tzu and is the cutest member of the
                 Flores family. She spends her day playing with her ball and
-                giving dirty looks to stray cats. She's everyone's favorite pet
+                giving dirty looks to stray cats. She&apos;s everyone&apos;s favorite pet
                 and constantly grabs the attention of visitors. Everyone in the
-                neighborhood knows Maxi and all the other dogs' heads turn when
-                she passes by (she's like the equivalent of a popular high
-                school cheerleader to them). Don't even bother to try to take
-                Maxi's ball or you will suffer her wrath!
+                neighborhood knows Maxi and all the other dogs&apos; heads turn when
+                she passes by (she&apos;s like the equivalent of a popular high
+                school cheerleader to them). Don&apos;t even bother to try to take
+                Maxi&apos;s ball or you will suffer her wrath!
               </p>
             </div>
           </div>
