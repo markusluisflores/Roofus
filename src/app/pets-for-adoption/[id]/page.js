@@ -150,7 +150,7 @@ export default function PetInformation({ params }) {
         <div className="flex flex-col items-center h-screen w-screen">
           <div className="flex flex-col items-center w-5/6 max-w-[1920px]">
             <p
-              className={`${roboto.className} text-gray-800 text-4xl self-start max-w-[1200px] font-bold pt-14 pb-8 underline underline-offset-4`}
+              className={`${roboto.className} text-gray-800 text-4xl max-w-[1200px] text-center md:text-left font-bold pt-8 pb-4 underline underline-offset-4`}
             >
               Meet Our Pet
             </p>
@@ -232,9 +232,9 @@ export default function PetInformation({ params }) {
             </div>
             {/* Carousel section */}
             <p
-              className={`${roboto.className} text-gray-800 text-4xl font-bold self-start py-8 underline underline-offset-4`}
+              className={`${roboto.className} text-gray-800 text-4xl text-center md:text-left font-bold py-8 underline underline-offset-4`}
             >
-              More Loveable Animals
+              Our Loveable Animals
             </p>
             <div className="flex overflow-x-auto gap-x-4 w-full pb-5 mb-16 scrollbar-thin">
               {availablePets}
