@@ -156,6 +156,16 @@ export default function NavBar() {
                   as="a"
                   href={item.href}
                   aria-current={item.current ? "page" : undefined}
+                  onClick={() => {
+                    switch (item.name) {
+                      case "Login":
+                        openLogin();
+                      case "Logout":
+                        handleSignOut();
+                      default:
+                        null;
+                    }
+                  }}
                   className={classNames(
                     item.current
                       ? "bg-brandWhite text-brandRed"
