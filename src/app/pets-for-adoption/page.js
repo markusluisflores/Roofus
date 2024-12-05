@@ -5,6 +5,7 @@ import PetCard from "@/components/pet-card";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Roboto } from "next/font/google";
+import Footer from "@/components/footer";
 
 const roboto = Roboto({
   weight: ["100", "500", "300", "400", "700", "900"],
@@ -63,7 +64,7 @@ export default function PetsForAdoption() {
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white">
-          <h1 className="text-5xl font-bold mb-4">Find Your Forever Friend</h1>
+          <h1 className="text-5xl font-bold mb-4">Find Your Furever Friend</h1>
           <p className="text-xl px-4 mb-8">
             Every one of our animals deserves a loving and caring home. Explore
             now to find the furry friend who will thrive with you.
@@ -116,6 +117,7 @@ export default function PetsForAdoption() {
           </p>
         </div>
       )}
+      <Footer />
     </main>
   );
 }
