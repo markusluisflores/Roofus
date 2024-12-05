@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Footer from "@/components/footer";
 import NavBar from "@/components/nav";
 import { Roboto } from "next/font/google";
 
@@ -265,6 +266,7 @@ export default function About() {
           </div>
         </div>
       </div>
+      <Footer />
     </main>
   );
 }

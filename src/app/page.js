@@ -7,6 +7,7 @@ import AdoptionStoryCard from "@/components/story-card";
 import { adoptionStories, sampleObjectArray } from "@/sample";
 import { useEffect, useState } from "react";
 import { Roboto } from "next/font/google";
+import Footer from "@/components/footer";
 
 const roboto = Roboto({
   weight: ["100", "500", "300", "400", "700", "900"],
@@ -122,6 +123,7 @@ export default function Home() {
           </section>
         </section>
       </section>
+      <Footer />
     </main>
   );
 }
