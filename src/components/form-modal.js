@@ -18,6 +18,7 @@ export default function AdoptionForm({ onClose, petId, petName, formType, formId
   const [haveKids, setHaveKids] = useState("No");
   const [havePets, setHavePets] = useState("No");
   const [displayName, setDisplayName] = useState("");
+  const [applicantEmail, setApplicantEmail] = useState("");
 
   const [formSubmitted, setFormSubmitted] = useState(false);
 
@@ -69,6 +70,8 @@ export default function AdoptionForm({ onClose, petId, petName, formType, formId
       }
     }
     else {
+      formData.userEmail = applicantEmail;
+      formData.userName = displayName;
       let request = new Request(
         `api/forms/${formId}`,
         {
@@ -87,7 +90,6 @@ export default function AdoptionForm({ onClose, petId, petName, formType, formId
         console.log(error);
       }
     }
-
   };
 
   async function getFormInfo() {
@@ -101,6 +103,7 @@ export default function AdoptionForm({ onClose, petId, petName, formType, formId
       setHaveKids(data.haveKids);
       setHavePets(data.havePets);
       setDisplayName(data.userName);
+      setApplicantEmail(data.userEmail);
     } catch (error) {
       console.log(error);
     }

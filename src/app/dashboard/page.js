@@ -90,8 +90,6 @@ export default function Dashboard() {
       try {
         const response = await fetch('api/admins');
         const data = await response.json();
-        console.log("admin data");
-        console.log(data);
         if (response.ok) {
           const formsResponse = await fetch('api/forms');
           let formsData = await formsResponse.json();
