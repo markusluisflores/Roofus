@@ -77,7 +77,7 @@ export default function Dashboard() {
 
   async function getAllPets() {
     try {
-      const response = await fetch("/api/pets");
+      const response = await fetch("api/pets");
       const data = await response.json();
       setPetList(data);
     } catch (error) {
@@ -88,12 +88,12 @@ export default function Dashboard() {
   async function getAllForms() {
     if (user) {
       try {
-        const response = await fetch('/api/admins');
+        const response = await fetch('api/admins');
         const data = await response.json();
         console.log("admin data");
         console.log(data);
         if (response.ok) {
-          const formsResponse = await fetch('/api/forms');
+          const formsResponse = await fetch('api/forms');
           let formsData = await formsResponse.json();
 
           const matchedAdmin = data.find((admin) => admin.email == user.email);

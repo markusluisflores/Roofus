@@ -51,7 +51,7 @@ export default function AdoptionForm({ onClose, petId, petName, formType, formId
     console.log(formData);
     if (formType == 'Add') {
       let request = new Request(
-        "http://localhost:3000/api/forms",
+        "api/forms",
         {
           method: "POST",
           body: JSON.stringify(formData)
@@ -70,7 +70,7 @@ export default function AdoptionForm({ onClose, petId, petName, formType, formId
     }
     else {
       let request = new Request(
-        `http://localhost:3000/api/forms/${formId}`,
+        `api/forms/${formId}`,
         {
           method: "PUT",
           body: JSON.stringify(formData)
@@ -92,7 +92,7 @@ export default function AdoptionForm({ onClose, petId, petName, formType, formId
 
   async function getFormInfo() {
     try {
-      const response = await fetch(`http://localhost:3000/api/forms/${formId}`);
+      const response = await fetch(`api/forms/${formId}`);
       const data = await response.json();
       setPhoneNum(data.phoneNum);
       setAddress(data.address);
