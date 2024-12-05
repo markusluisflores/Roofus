@@ -198,7 +198,7 @@ export default function PetInformation({ params }) {
                 {/* Section 3 - Additional Details */}
                 {petInformation.location === "Foster Care" ? (
                   <p className="mb-5">
-                    Since {petInformation.name} is in foster care, kindly us a
+                    Since {petInformation.name} is in foster care, kindly send us a
                     message for further details!
                   </p>
                 ) : null}
