@@ -70,9 +70,9 @@ export default function NavBar() {
       ];
       const conditionalItems = user
         ? [
-            { name: "Dashboard", href: "/dashboard", current: false },
-            { name: "Logout", href: "#", current: false },
-          ]
+          { name: "Dashboard", href: "/dashboard", current: false },
+          { name: "Logout", href: "#", current: false },
+        ]
         : [{ name: user ? "Logout" : "Login", href: "#", current: false }];
       return [...defaultItems, ...conditionalItems];
     });
@@ -115,7 +115,7 @@ export default function NavBar() {
                     return (
                       <a
                         key={item.name}
-                        href={item.href}
+                        href={item.name === "Logout" ? "/" : item.href}
                         aria-current={item.current ? "page" : undefined}
                         onClick={() => {
                           switch (item.name) {
