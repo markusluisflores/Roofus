@@ -52,7 +52,7 @@ export default function AdoptionForm({ onClose, petId, petName, formType, formId
     console.log(formData);
     if (formType == 'Add') {
       let request = new Request(
-        "/api/forms",
+        "api/forms",
         {
           method: "POST",
           body: JSON.stringify(formData)
@@ -73,7 +73,7 @@ export default function AdoptionForm({ onClose, petId, petName, formType, formId
       formData.userEmail = applicantEmail;
       formData.userName = displayName;
       let request = new Request(
-        `/api/forms/${formId}`,
+        `api/forms/${formId}`,
         {
           method: "PUT",
           body: JSON.stringify(formData)
@@ -94,7 +94,7 @@ export default function AdoptionForm({ onClose, petId, petName, formType, formId
 
   async function getFormInfo() {
     try {
-      const response = await fetch(`/api/forms/${formId}`);
+      const response = await fetch(`api/forms/${formId}`);
       const data = await response.json();
       setPhoneNum(data.phoneNum);
       setAddress(data.address);
@@ -117,13 +117,13 @@ export default function AdoptionForm({ onClose, petId, petName, formType, formId
 
   return (
     <div
-      className="fixed inset-0 z-50 h-full w-full flex items-center justify-center bg-gray-950/70"
+      className="fixed inset-0 z-50 h-full w-full flex items-center justify-center bg-gray-950/70 p-4 overflow-y-auto"
       onClick={onClose}
     >
-      <div onClick={(event) => event.stopPropagation()}>
+      <div onClick={(event) => event.stopPropagation()} className="my-auto">
         <form
           onSubmit={handleSubmit}
-          className={`${roboto.className} max-w-4xl mx-auto p-6 bg-white rounded-lg`}
+          className={`${roboto.className} w-full max-w-4xl mx-auto p-6 bg-white rounded-lg max-h-[90vh] overflow-y-auto`}
         >
           <h1 className="text-2xl text-black font-bold text-center mb-8">
             {formType == 'Edit' && 'Edit'} Adoption Application Form
