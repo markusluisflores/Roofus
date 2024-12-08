@@ -178,13 +178,13 @@ export default function PetForm({ closeForm, openType, petId, setRefresh }) {
 
     return (
         <div
-            className="fixed inset-0 z-50 h-full w-full flex items-center justify-center bg-gray-950/70 py-20"
+            className="fixed inset-0 z-50 h-full w-full flex items-center justify-center bg-gray-950/70 p-4"
             onClick={closeForm}
         >
-            <div onClick={(event) => event.stopPropagation()}>
+            <div onClick={(event) => event.stopPropagation()} className="my-auto max-w-4xl">
                 <form
                     onSubmit={handleSubmit}
-                    className={`${roboto.className} max-w-4xl mx-auto p-6 top-20 bg-white rounded-lg`}
+                    className={`${roboto.className} w-full max-w-4xl mx-auto p-6 top-20 bg-white rounded-lg max-h-[90vh] overflow-y-auto`}
                 >
                     <h1 className="text-2xl text-black font-bold text-center mb-8">
                         {headerText}
