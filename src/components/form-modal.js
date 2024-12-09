@@ -52,7 +52,7 @@ export default function AdoptionForm({ onClose, petId, petName, formType, formId
     console.log(formData);
     if (formType == 'Add') {
       let request = new Request(
-        "api/forms",
+        "/api/forms",
         {
           method: "POST",
           body: JSON.stringify(formData)
